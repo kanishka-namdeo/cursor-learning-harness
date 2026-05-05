@@ -1,0 +1,25 @@
+# Critical Learning Rules
+
+> These rules are loaded into every session. Each rule is a specific behavioral change, not a generic observation.
+
+### DO NOT call `Grep` without scoping
+- **Rule**: Always provide `glob` or `type` or `path` filter when calling `Grep`. Unscoped regex searches on the full repo time out after 25s.
+- **Evidence**: 8 session timeouts from unscoped Grep calls.
+- **Instead**: Use `Grep(pattern, type="py")` or `Grep(pattern, glob="**/*.ts")` or narrow to a specific directory.
+
+### DO verify file existence before `Read`
+- **Rule**: Before calling `Read` on workspace files, check the file exists (e.g., via `Glob` or `Shell: ls`). Compaction and session cleanup may delete files.
+- **Evidence**: 9 "File not found" errors across sessions for files like `session.json`, `verify_gpu.py`.
+- **Instead**: `Glob(pattern="**/session.json")` first, then `Read` only if found.
+
+### DO NOT use `explore` subagent for simple code search
+- **Rule**: For "find where X is defined/used" queries, use `Grep` or `SemanticSearch` directly. Reserve `explore` subagent only for multi-file architectural exploration.
+- **Evidence**: 67% success rate (4/6) vs near-100% for direct tool use on equivalent queries.
+
+### DO use `WebSearch` or `WebFetch` for library documentation
+- **Rule**: For API syntax, configuration, or version-specific guidance, always use `user-context7` MCP or `WebSearch` before relying on training data.
+- **Evidence**: Training data may be stale; current docs often differ.
+
+### DO NOT call `MCP:browser_wait` -- tool does not exist
+- **Rule**: The `cursor-ide-browser` MCP does not have a `browser_wait` tool. Use `browser_snapshot` to check page state instead of waiting.
+- **Evidence**: 3 "tool not found" errors.

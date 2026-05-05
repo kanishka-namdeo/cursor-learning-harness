@@ -1,0 +1,59 @@
+---
+description: Auto-updated critical learning rules from session telemetry. Managed by learning_rules_langgraph.py LangGraph agent. Changelog at state/learning_rules_changelog.jsonl.
+alwaysApply: true
+---
+
+# Critical Learning Rules
+
+> Auto-synced from extracted signals. Rules with proven effectiveness are prioritized.
+> Last synced: 2026-05-05T11:52:04.524480
+
+### [Tool Failures] Read tool fails with 'File not found' in `d:\test_agent\learning_agent/` — stale or transient data (sessions: 11)
+- **Rule**: Files in `d:\test_agent\learning_agent/` may be deleted during compaction or between sessions. Examples: .last_extracted_signals.json, test_structured_summary_sentiment.py, summary_narrative.md, session.json, test_task_completion.py. Check file existence before reading and handle gracefully with a default or skip.
+- **Evidence**: 11 sessions
+- **Effectiveness**: unknown
+
+### [Tool Failures] The `Grep` tool fails with error error: `Timed out after 25s`
+- **Rule**: Always scope Grep calls with specific filters. Unscoped searches time out.
+- **Evidence**: 8 sessions
+- **Effectiveness**: unknown
+
+### [Subagent Patterns] `explore` subagent for Explore (4/6 success, 6 sessions)
+- **Rule**: Use explore only for complex multi-step tasks. Use direct tools for simple queries.
+- **Evidence**: 6 sessions
+- **Effectiveness**: unknown
+
+### [Tool Failures] The `Write` tool fails with error error: `Unknown error`
+- **Rule**: Investigate why `Write` fails with error and handle this case explicitly. Check input parameters and file state before calling.
+- **Evidence**: 5 sessions
+- **Effectiveness**: unknown
+
+### [Subagent Patterns] `general-purpose` subagent for Execute plan (1/3 success, 3 sessions)
+- **Rule**: Use None only for complex multi-step tasks. Use direct tools for simple queries.
+- **Evidence**: 3 sessions
+- **Effectiveness**: unknown
+
+### [Tool Failures] The `FetchMcpResource` tool fails with error error: `Resource not found`
+- **Rule**: DO NOT call FetchMcpResource -- this tool does not exist. Check available tools before calling.
+- **Evidence**: 1 sessions
+- **Effectiveness**: unknown
+
+### [Tool Failures] The `MCP:browser_wait` tool fails with error error: `Tool cursor-ide-browser-browser_wait not found, available tools: cursor-app-control-move_agent_to_root, cursor-app-control-create_project, cursor-ide-browser-browser_navigate, cursor-ide-browser-brows`
+- **Rule**: DO NOT call None -- this tool does not exist. Check available tools before calling.
+- **Evidence**: 1 sessions
+- **Effectiveness**: unknown
+
+### [Tool Failures] The `Grep` tool fails with error error: `Path does not exist: d:\test_agent\learning_agent\.cursor\hooks\state\session_index.json`
+- **Rule**: DO NOT call Grep -- this tool does not exist. Check available tools before calling.
+- **Evidence**: 1 sessions
+- **Effectiveness**: unknown
+
+### [Decision Quality] Decision: `Piped 'echo y' to the script command` (appeared in 1 sessions, archetype: unknown)
+- **Rule**: Review this decision pattern. Reason given: Automate the interactive confirmation prompt for non-blocking execution. Consider if this pattern should be standardized or avoided.
+- **Evidence**: 1 sessions
+- **Effectiveness**: unknown
+
+### [Decision Quality] Decision: `Created comprehensive test suite instead of just answering the question` (appeared in 1 sessions, archetype: unknown)
+- **Rule**: Review this decision pattern. Reason given: Testing validates understanding and catches bugs across the entire pipeline. Consider if this pattern should be standardized or avoided.
+- **Evidence**: 1 sessions
+- **Effectiveness**: unknown

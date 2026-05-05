@@ -1,0 +1,29 @@
+{
+  "version": 1,
+  "skills": {
+    "mastering-langgraph": {
+      "source": "SpillwaveSolutions/mastering-langgraph-agent-skill",
+      "sourceType": "github",
+      "skillPath": "SKILL.md",
+      "computedHash": "a33d217deadf8b330c459e10c62be9990bfd778e2a0582d39aac1a1a10c8a97c"
+    },
+    "pytest": {
+      "source": "1Mangesh1/dev-skills-collection",
+      "sourceType": "github",
+      "skillPath": "skills/pytest/SKILL.md",
+      "computedHash": "f6abbeb7de9d203a5cd8844fd9c8a6ef1a6bc5ebc1de762a186ea5504fe983a2"
+    },
+    "python-type-safety": {
+      "source": "wshobson/agents",
+      "sourceType": "github",
+      "skillPath": "plugins/python-development/skills/python-type-safety/SKILL.md",
+      "computedHash": "76e08740199869de7af1224f1c3e69b0dd1d8f46e82276ba20530e657234fb73"
+    },
+    "ruff-recursive-fix": {
+      "source": "github/awesome-copilot",
+      "sourceType": "github",
+      "skillPath": "skills/ruff-recursive-fix/SKILL.md",
+      "computedHash": "a6f4b355dd277d24f9ea95cb0f6f181fb4fc77fa8080d1e4f649af21d2095f2a"
+    }
+  }
+}

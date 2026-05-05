@@ -1,0 +1,67 @@
+# Secrets - never commit API keys
+.env
+.env.*
+.cursor/llm.env
+
+# OS files
+Thumbs.db
+desktop.ini
+.DS_Store
+
+# Python
+.venv/
+venv/
+env/
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+*.egg-info
+
+# Python runtime
+pip-log.txt
+pip-delete-this-directory.txt
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+.nox/
+
+# Typing
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Daemon/State files (auto-generated)
+.cursor/hooks/state/summarizer_daemon.pid
+.cursor/hooks/state/.last_extracted_signals.json
+.cursor/hooks/state/learning_rules_changelog.jsonl*
+.cursor/hooks/state/.learning_rules_lock
+.cursor/hooks/state/session_index.json
+.cursor/hooks/state/sessions/
+.cursor/hooks/state/*.pid
+.cursor/hooks/state/*.lock
+
+# Logs
+*.log
+logs/
+
+# Distribution
+*.tar.gz
+*.whl
