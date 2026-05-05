@@ -5,75 +5,26 @@
 <h1 align="center">Cursor Learning Harness</h1>
 
 <p align="center">
-  <strong>Self-Improving AI Coding Assistant with LangGraph & LangChain</strong>
+  Records Cursor AI coding sessions, generates narrative summaries, and self-improves agent behavior through a closed learning loop.
 </p>
-
-<table align="center"><tr>
-<td style="padding:4px 12px;background:#238636;border-radius:6px;color:#ffffff;">Python 3.13+</td>
-<td style="padding:4px 12px;background:#238636;border-radius:6px;color:#ffffff;">LangGraph 0.2+</td>
-<td style="padding:4px 12px;background:#9a6700;border-radius:6px;color:#ffffff;">MIT License</td>
-<td style="padding:4px 12px;background:#bc4c00;border-radius:6px;color:#ffffff;">SQLite 3</td>
-<td style="padding:4px 12px;background:#da3633;border-radius:6px;color:#ffffff;">Streamlit</td>
-</tr></table>
 
 <p align="center">
-  <em>Records every AI coding session, generates narrative summaries, tracks sentiment arcs, and continuously improves agent behavior over time.</em>
+  <a href="https://www.python.org/downloads/"><img src="https://img.shields.io/badge/Python-3.13+-blue?logo=python" alt="Python"></a>
+  <a href="https://github.com/langchain-ai/langgraph"><img src="https://img.shields.io/badge/LangGraph-1.0+-green?logo=chainlink" alt="LangGraph"></a>
+  <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-yellow" alt="License"></a>
+  <a href="https://docs.pytest.org/"><img src="https://img.shields.io/badge/Tests-pytest-lightgrey?logo=pytest" alt="Tests"></a>
 </p>
+
+> [!NOTE]
+> Screenshot of the Streamlit dashboard coming soon.
 
 ---
 
-## At a Glance
+## Why This Project
 
-<p align="center">
-<table border="0" cellpadding="8" cellspacing="0" width="100%">
-<tr>
-<td width="50%" style="background:#161b22;border:1px solid #30363d;border-radius:10px;padding:16px;vertical-align:top;">
-<strong style="color:#60a5fa;font-size:15px;font-family:system-ui,sans-serif;">Session Recording</strong><br>
-<span style="color:#8b949e;font-size:13px;font-family:system-ui,sans-serif;">Captures the full lifecycle of Cursor AI coding sessions — initial thoughts, tool calls, shell commands, file edits, and final output</span>
-</td>
-<td width="50%" style="background:#161b22;border:1px solid #30363d;border-radius:10px;padding:16px;vertical-align:top;">
-<strong style="color:#a78bfa;font-size:15px;font-family:system-ui,sans-serif;">AI Summarization</strong><br>
-<span style="color:#8b949e;font-size:13px;font-family:system-ui,sans-serif;">Uses LangGraph agents to generate human-readable narrative summaries of each session</span>
-</td>
-</tr>
-<tr><td colspan="2" height="8"></td></tr>
-<tr>
-<td width="50%" style="background:#161b22;border:1px solid #30363d;border-radius:10px;padding:16px;vertical-align:top;">
-<strong style="color:#22d3ee;font-size:15px;font-family:system-ui,sans-serif;">Sentiment Arc Analysis</strong><br>
-<span style="color:#8b949e;font-size:13px;font-family:system-ui,sans-serif;">Classifies sessions into archetypes (smooth convergence, escalating frustration, looping, etc.) based on emotional trajectory</span>
-</td>
-<td width="50%" style="background:#161b22;border:1px solid #30363d;border-radius:10px;padding:16px;vertical-align:top;">
-<strong style="color:#34d399;font-size:15px;font-family:system-ui,sans-serif;">Self-Improving Loop</strong><br>
-<span style="color:#8b949e;font-size:13px;font-family:system-ui,sans-serif;">Extracts actionable patterns from session telemetry and generates Cursor rules to improve agent behavior over time</span>
-</td>
-</tr>
-</table>
-</p>
-
----
-
-## Tech Stack
-
-<table align="center"><tr>
-<td style="padding:3px 10px;background:#238636;border-radius:4px;color:#ffffff;">LangChain 0.3+</td>
-<td style="padding:3px 10px;background:#238636;border-radius:4px;color:#ffffff;">OpenAI API</td>
-<td style="padding:3px 10px;background:#bc4c00;border-radius:4px;color:#ffffff;">HuggingFace</td>
-<td style="padding:3px 10px;background:#cf222e;border-radius:4px;color:#ffffff;">PyTorch 2.0+</td>
-<td style="padding:3px 10px;background:#8250df;border-radius:4px;color:#ffffff;">Plotly</td>
-<td style="padding:3px 10px;background:#9a6700;border-radius:4px;color:#000000;">Ruff</td>
-<td style="padding:3px 10px;background:#0969da;border-radius:4px;color:#ffffff;">pytest</td>
-</tr></table>
-
-## Features
-
-- **Session Recording**: Captures the full lifecycle of Cursor AI coding sessions — initial thoughts, tool calls, shell commands, file edits, and final output
-- **AI-Powered Summarization**: Uses LangGraph agents to generate human-readable narrative summaries of each session
-- **Two-Level Summarization**: Session-level narratives (from raw events) and conversation-level narratives (aggregated from session summaries)
-- **Sentiment Arc Analysis**: Classifies sessions into archetypes (smooth convergence, escalating frustration, looping, etc.) based on emotional trajectory
-- **Self-Improving Learning Loop**: Extracts actionable patterns from session telemetry and generates Cursor rules to improve agent behavior
-- **Dual Storage**: Session data written to both JSON files (primary) and SQLite (queryable mirror)
-- **Streamlit Dashboard**: Interactive UI for exploring sessions, narratives, tool analytics, and file activity
-- **Fail-Open Design**: Hooks never block the Cursor agent workflow on error
+- **AI sessions are invisible** -- every Cursor session is lost after the chat clears; this records everything
+- **No pattern tracking** -- repeated failures, looping, and frustration go unnoticed; sentiment analysis catches them
+- **Agents don't learn** -- extracted patterns become Cursor rules that improve future behavior automatically
 
 ## Quick Start
 
@@ -85,35 +36,33 @@
 ### Setup
 
 ```bash
-# Create and activate virtual environment
+# 1. Create and activate virtual environment
 python -m venv .venv
-.venv/Scripts\python.exe -m pip install -r .cursor/hooks/requirements.txt
+.venv\Scripts\activate
 
-# Install additional dependencies
-.venv/Scripts\python.exe -m pip install \
-  sentence-transformers torch scikit-learn numpy tqdm \
-  streamlit plotly pytest
+# 2. Install dependencies
+pip install -r .cursor/hooks/requirements.txt
+pip install streamlit plotly
 
-# Populate SQLite database from existing JSON sessions
-.venv/Scripts\python.exe .cursor/hooks/narratives_db.py --backfill
+# 3. (Optional) Backfill SQLite from existing JSON sessions
+python .cursor/hooks/narratives_db.py --backfill
+
+# 4. Launch the dashboard
+streamlit run .cursor/hooks/dashboard/dashboard.py
 ```
 
-### Usage
+The summarizer daemon auto-starts on every `sessionStart` via `.cursor/hooks.json` -- no manual step needed.
 
-```bash
-# Start the summarizer daemon (auto-starts on sessionStart via hooks.json)
-.venv/Scripts\python.exe .cursor/hooks/summarizer_daemon.py --start
+## Features
 
-# Run sentiment arc analysis
-.venv/Scripts\python.exe run_sentiment_arc.py
-
-# Launch the dashboard
-cd .cursor/hooks/dashboard
-streamlit run dashboard.py
-
-# View sessions via CLI
-.venv/Scripts\python.exe .cursor/hooks/view.py
-```
+- **Session Recording**: Captures the full lifecycle of Cursor AI coding sessions -- initial thoughts, tool calls, shell commands, file edits, and MCP calls
+- **AI-Powered Summarization**: Uses LangGraph agents to generate human-readable narrative summaries of each session
+- **Two-Level Summarization**: Session-level narratives (from raw events) and conversation-level narratives (aggregated from session summaries)
+- **Sentiment Arc Analysis**: Classifies sessions into archetypes (smooth convergence, escalating frustration, looping, etc.) based on emotional trajectory
+- **Self-Improving Learning Loop**: Extracts actionable patterns from session telemetry and generates Cursor rules (`.mdc`) to improve agent behavior
+- **Dual Storage**: Session data written to both JSON files (primary) and SQLite (queryable mirror) with fail-open SQLite writes
+- **Streamlit Dashboard**: Interactive UI for exploring sessions, narratives, tool analytics, and file activity
+- **Fail-Open Design**: Hooks never block the Cursor agent workflow on error
 
 ## Architecture
 
@@ -123,127 +72,166 @@ flowchart TD
     Hooks -->|"sessionStart"| SessionStart["session_start.py"]
     Hooks -->|"sessionEnd"| SessionEnd["session_end.py"]
     Hooks -->|"preToolUse, postToolUse, etc."| Recorder["ConversationRecorder"]
-    Recorder --> SessionJSON["session.json"]
-    Recorder --> SQLite["narratives_db.py"]
-    SessionEnd -->|"trigger"| Daemon["summarizer_daemon.py"]
+    Recorder --> SessionJSON["state/sessions/{id}/session.json"]
+    Recorder -->|"fail-open"| SQLite["narratives_db.py"]
+    SessionEnd -->|"write trigger"| Trigger["summarizer_trigger.py"]
+    Trigger --> Daemon["summarizer_daemon.py"]
     Daemon -->|"invokes"| Summarizer["summarizer_agent.py"]
     Summarizer -->|"writes"| SummaryMD["summary_narrative.md"]
-    SessionEnd -->|"check"| ConvSummarizer["conversation_summarizer_agent.py"]
+    SessionEnd -->|"check all sessions"| ConvSummarizer["conversation_summarizer_agent.py"]
+    SessionEnd -->|"trigger"| SentimentTrigger["sentiment_arc_trigger.py"]
+    ConvSummarizer -->|"writes"| ConvNarrative["conversation_narratives (SQLite)"]
 ```
 
-## How It Works
+## Configuration
 
+### LLM API Key
+
+The summarizer requires an LLM API key. Create a `.cursor/llm.env` file (see `.cursor/llm.env.example` for the template):
+
+```bash
+OPENAI_API_KEY=sk-...
+OPENAI_MODEL=gpt-4o
 ```
-┌─────────────────────────────────────────────────────────────────┐
-│                      Cursor IDE Events                          │
-│  sessionStart · toolUse · shellCommand · fileEdit · MCP calls   │
-└────────────────────────────┬────────────────────────────────────┘
-                             │
-                    ┌────────▼────────┐
-                    │   Hooks Router   │
-                    │  (hooks.json)    │
-                    └────────┬────────┘
-                             │
-              ┌──────────────┼──────────────┐
-              │              │              │
-     ┌────────▼──────┐ ┌────▼─────┐ ┌──────▼──────┐
-     │  Session JSON │ │  SQLite   │ │  Summarizer │
-     │  (Primary)    │ │  (Mirror) │ │   Daemon    │
-     └───────────────┘ └──────────┘ └──────┬──────┘
-                                           │
-                              ┌────────────▼────────────┐
-                              │    LangGraph Agent       │
-                              │  (StateGraph Pipeline)   │
-                              └────────────┬────────────┘
-                                           │
-                    ┌──────────────────────┼──────────────────────┐
-                    │                      │                      │
-           ┌────────▼────────┐   ┌────────▼────────┐   ┌────────▼────────┐
-           │  Narrative      │   │  Sentiment      │   │  Learning       │
-           │  Summaries      │   │  Arc Analysis   │   │  Analyzer       │
-           └─────────────────┘   └─────────────────┘   └────────┬────────┘
-                                                                │
-                                                       ┌────────▼────────┐
-                                                       │  Cursor Rules   │
-                                                       │  (.mdc files)   │
-                                                       └─────────────────┘
-```
+
+### Sentiment Analysis
+
+Sentiment arc analysis runs locally using:
+- `cardiffnlp/twitter-roberta-base-sentiment-latest` for per-turn sentiment scoring
+- `sentence-transformers/all-MiniLM-L6-v2` for embedding-based geometric features
+
+No API key is needed for sentiment analysis -- models are downloaded automatically on first run.
 
 ## Project Structure
 
 ```
-cursor-learning-harness/
+.
 ├── .cursor/
-│   ├── hooks/                  # Hook scripts (Python)
-│   │   ├── session_start.py    # Session initialization
-│   │   ├── session_end.py      # Session finalization
-│   │   ├── summarizer_agent.py # LangGraph summarization
-│   │   ├── narratives_db.py    # SQLite database ops
-│   │   ├── learning_analyzer.py# Pattern extraction
-│   │   └── dashboard/          # Streamlit dashboard
-│   ├── rules/                  # Auto-generated learning rules
-│   ├── skills/                 # Agent skill definitions
-│   └── hooks.json              # Event routing configuration
-├── assets/                     # Repository graphics
-├── DOCS.md                     # Full documentation (1600+ lines)
-├── README.md                   # This file
-└── .venv/                      # Python virtual environment
+│   ├── hooks.json                    # Event routing (20 event types)
+│   ├── llm.env.example               # LLM API config template
+│   ├── hooks/                        # Hook scripts (~63 Python files)
+│   │   ├── conversation_recorder.py  # Shared: session CRUD, event recording
+│   │   ├── narratives_db.py          # SQLite: 8 schema migrations, 11 tables
+│   │   ├── learning_analyzer.py      # Pattern extraction -> .mdc rules
+│   │   ├── learning_rules_agent.py   # LangGraph learning rules agent
+│   │   ├── summarizer_agent.py       # LangGraph: session-level summarizer
+│   │   ├── conversation_summarizer_agent.py  # LangGraph: conversation summarizer
+│   │   ├── summarizer_daemon.py      # Background polling daemon
+│   │   ├── summarizer_daemon_launcher.py     # Windows DETACHED_PROCESS launcher
+│   │   ├── summarizer_trigger.py     # Trigger file writer for daemon
+│   │   ├── summarize_sessions.py     # CLI: manual batch summarization
+│   │   ├── session_start.py          # Session initialization
+│   │   ├── session_end.py            # Session finalization + triggers
+│   │   ├── pre_tool_use.py           # Records tool invocations
+│   │   ├── post_tool_use.py          # Records tool results
+│   │   ├── post_tool_use_failure.py  # Records tool failures
+│   │   ├── before_shell_execution.py # Records shell commands
+│   │   ├── after_shell_execution.py  # Records shell results
+│   │   ├── before_mcp_execution.py   # Records MCP calls
+│   │   ├── after_mcp_execution.py    # Records MCP results
+│   │   ├── after_file_edit.py        # Records code changes
+│   │   ├── after_agent_response.py   # Records agent responses
+│   │   ├── after_agent_thought.py    # Records agent reasoning
+│   │   ├── subagent_start.py         # Subagent lifecycle tracking
+│   │   ├── subagent_stop.py          # Subagent lifecycle tracking
+│   │   ├── sentiment_arc/            # Sentiment analysis module
+│   │   │   ├── arc_analyzer.py       # Core analysis logic
+│   │   │   ├── arc_db.py             # Sentiment storage
+│   │   │   ├── config.py             # Analysis configuration
+│   │   │   ├── dedup.py              # Duplicate session detection
+│   │   │   ├── embedder.py           # Sentence embeddings
+│   │   │   ├── parser.py             # Session event parsing
+│   │   │   ├── score_text.py         # Text-based sentiment scoring
+│   │   │   ├── task_completion.py    # Task completion detection
+│   │   │   └── tests/                # Unit tests for sentiment module
+│   │   ├── dashboard/                # Streamlit dashboard
+│   │   │   ├── dashboard.py          # Main UI
+│   │   │   └── db_queries.py         # Database query layer
+│   │   └── view.py                   # CLI session viewer
+│   ├── rules/                        # Auto-generated learning rules (.mdc)
+│   └── skills/                       # Agent skill definitions
+├── .cursor/hooks/state/              # Runtime state (sessions, logs, SQLite)
+│   ├── sessions/                     # Individual session JSON files
+│   ├── sessions_index.json           # Session index
+│   ├── conversation_links.json       # Cross-session conversation links
+│   ├── narratives.db                 # SQLite database
+│   └── summarizer_daemon.log         # Daemon logs
+├── assets/                           # Repository graphics
+├── DOCS.md                           # Comprehensive documentation
+├── CONTRIBUTING.md                   # Contribution guidelines
+└── README.md                         # This file
+```
+
+## CLI Tools
+
+```bash
+# View sessions via CLI
+python .cursor/hooks/view.py
+
+# Launch the Streamlit dashboard
+streamlit run .cursor/hooks/dashboard/dashboard.py
+
+# Populate SQLite from existing JSON sessions
+python .cursor/hooks/narratives_db.py --backfill
+
+# Manage the summarizer daemon
+python .cursor/hooks/summarizer_daemon.py --start
+python .cursor/hooks/summarizer_daemon.py --stop
+
+# Run sentiment arc analysis
+python .cursor/hooks/sentiment_arc/batch_runner.py
+
+# Run the learning analyzer (generate .mdc rules)
+python .cursor/hooks/learning_analyzer.py --bootstrap
 ```
 
 ## Sentiment Arc Analysis
 
 Classifies sessions into archetypes based on emotional trajectory:
 
-- **Smooth convergence** -- session resolved cleanly
-- **Escalating frustration** -- things get worse over time
-- **Looping** -- agent repeats failed approaches
-- **Mismatched effort** -- user is clear but agent relevance degrades
-- **Rapid resolution, steady friction, abandoned, inconclusive**
+| Archetype | Description |
+| --- | --- |
+| Smooth convergence | Session resolved cleanly |
+| Escalating frustration | Things get worse over time |
+| Looping | Agent repeats failed approaches |
+| Mismatched effort | User is clear but agent relevance degrades |
+| Rapid resolution / Steady friction / Abandoned / Inconclusive | Other patterns |
 
-Uses `cardiffnlp/twitter-roberta-base-sentiment-latest` for per-turn sentiment scoring and `sentence-transformers/all-MiniLM-L6-v2` for geometric features (user self-distance, model relevance trend).
-
-```bash
-.venv/Scripts\python.exe run_sentiment_arc.py
-```
+See [DOCS.md](DOCS.md) for details on the analysis pipeline.
 
 ## Learning Loop
 
 The learning analyzer extracts patterns from session telemetry and generates Cursor rules (`.mdc` format) to improve agent behavior over time:
 
-1. **Extract** -- tool failures, file hotspots, sentiment patterns, subagent patterns, user corrections, and more
+1. **Extract** -- tool failures, file hotspots, sentiment patterns, subagent patterns, user corrections
 2. **Score** -- correlate rules with sentiment outcomes (positive/negative effectiveness)
 3. **Prune** -- remove noise, cap at 25 active rules
 4. **Apply** -- rules auto-apply via `.cursor/rules/learning-critical.mdc`
 
-```bash
-.venv/Scripts\python.exe .cursor/hooks/learning_analyzer.py --bootstrap
-```
+## Contributing
 
-See [DOCS.md](DOCS.md) for full documentation including hooks system architecture, database schema details, skills system, MCP integration, CLI tools, and troubleshooting.
+See [CONTRIBUTING.md](CONTRIBUTING.md) for development setup, test instructions, and code style guidelines. All hooks must be fail-open and output `{"permission": "allow"}` on success.
 
-## Setup Social Preview
+## Troubleshooting
 
-To enable the social preview image for this repository:
+| Issue | Solution |
+| --- | --- |
+| Summarizer daemon not starting | Check `.cursor/hooks/state/summarizer_daemon.log` |
+| LLM errors during summarization | Ensure `OPENAI_API_KEY` is set in `.cursor/llm.env` |
+| SQLite backfill fails | Verify `state/sessions/` directory contains session files |
+| Hook errors or unexpected behavior | Check `.cursor/hooks/state/hook-debug.log` |
+| Session files not created | Verify `.cursor/hooks.json` has correct hook paths |
 
-1. Go to **Settings** > **Social Preview** in your GitHub repository
-2. Click **Edit** and upload `assets/social-preview.png` (1280x640)
-3. This image will appear when sharing the repo on Twitter, Discord, etc.
+## Roadmap
 
----
-
-<p align="center">
-  Built with<br>
-<table align="center"><tr>
-<td style="padding:3px 10px;background:#238636;border-radius:4px;color:#ffffff;">LangGraph</td>
-<td style="padding:3px 10px;background:#238636;border-radius:4px;color:#ffffff;">LangChain</td>
-<td style="padding:3px 10px;background:#1f6feb;border-radius:4px;color:#ffffff;">Python</td>
-<td style="padding:3px 10px;background:#bc4c00;border-radius:4px;color:#ffffff;">SQLite</td>
-</tr></table>
-</p>
-
-<p align="center">
-  <a href="#cursor-learning-harness">Back to top</a>
-</p>
+- [x] Session recording with 20+ event types
+- [x] Two-level AI summarization (session + conversation)
+- [x] Sentiment arc analysis with local models
+- [x] Self-improving learning loop (extract, score, prune, apply)
+- [x] Streamlit dashboard
+- [x] Subagent lifecycle tracking
+- [ ] Cloud-synced session analytics
+- [ ] Multi-project support
 
 ## License
 
