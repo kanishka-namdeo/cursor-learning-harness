@@ -9,11 +9,11 @@
 </p>
 
 <table><tr>
-<td style="padding:4px 12px;background:#3b82f622;border:1px solid #3b82f6;border-radius:6px;color:#60a5fa;font-size:13px;font-weight:500;font-family:system-ui,sans-serif;">Python 3.13+</td>
-<td style="padding:4px 12px;background:#10b98122;border:1px solid #10b981;border-radius:6px;color:#34d399;font-size:13px;font-weight:500;font-family:system-ui,sans-serif;">LangGraph 0.2+</td>
-<td style="padding:4px 12px;background:#f59e0b22;border:1px solid #f59e0b;border-radius:6px;color:#fbbf24;font-size:13px;font-weight:500;font-family:system-ui,sans-serif;">MIT License</td>
-<td style="padding:4px 12px;background:#f9731622;border:1px solid #f97316;border-radius:6px;color:#fb923c;font-size:13px;font-weight:500;font-family:system-ui,sans-serif;">SQLite 3</td>
-<td style="padding:4px 12px;background:#ef444422;border:1px solid #ef4444;border-radius:6px;color:#f87171;font-size:13px;font-weight:500;font-family:system-ui,sans-serif;">Streamlit</td>
+<td align="center" bgcolor="#3b82f6"><font color="#ffffff">Python 3.13+</font></td>
+<td align="center" bgcolor="#10b981"><font color="#ffffff">LangGraph 0.2+</font></td>
+<td align="center" bgcolor="#f59e0b"><font color="#000000">MIT License</font></td>
+<td align="center" bgcolor="#f97316"><font color="#ffffff">SQLite 3</font></td>
+<td align="center" bgcolor="#ef4444"><font color="#ffffff">Streamlit</font></td>
 </tr></table>
 
 <p align="center">
@@ -55,13 +55,13 @@
 ## Tech Stack
 
 <table><tr>
-<td style="padding:3px 10px;background:#10b98122;border:1px solid #10b98155;border-radius:4px;color:#34d399;font-size:12px;font-family:system-ui,sans-serif;">LangChain 0.3+</td>
-<td style="padding:3px 10px;background:#10b98122;border:1px solid #10b98155;border-radius:4px;color:#34d399;font-size:12px;font-family:system-ui,sans-serif;">OpenAI API</td>
-<td style="padding:3px 10px;background:#f9731622;border:1px solid #f9731655;border-radius:4px;color:#fb923c;font-size:12px;font-family:system-ui,sans-serif;">HuggingFace</td>
-<td style="padding:3px 10px;background:#ee4c2c22;border:1px solid #ee4c2c55;border-radius:4px;color:#f87171;font-size:12px;font-family:system-ui,sans-serif;">PyTorch 2.0+</td>
-<td style="padding:3px 10px;background:#6366f122;border:1px solid #6366f155;border-radius:4px;color:#818cf8;font-size:12px;font-family:system-ui,sans-serif;">Plotly</td>
-<td style="padding:3px 10px;background:#fbbf2422;border:1px solid #fbbf2455;border-radius:4px;color:#fbbf24;font-size:12px;font-family:system-ui,sans-serif;">Ruff</td>
-<td style="padding:3px 10px;background:#0a9edc22;border:1px solid #0a9edc55;border-radius:4px;color:#38bdf8;font-size:12px;font-family:system-ui,sans-serif;">pytest</td>
+<td align="center" bgcolor="#10b981"><font color="#ffffff">LangChain 0.3+</font></td>
+<td align="center" bgcolor="#10b981"><font color="#ffffff">OpenAI API</font></td>
+<td align="center" bgcolor="#f97316"><font color="#ffffff">HuggingFace</font></td>
+<td align="center" bgcolor="#ee4c2c"><font color="#ffffff">PyTorch 2.0+</font></td>
+<td align="center" bgcolor="#6366f1"><font color="#ffffff">Plotly</font></td>
+<td align="center" bgcolor="#fbbf24"><font color="#000000">Ruff</font></td>
+<td align="center" bgcolor="#0a9edc"><font color="#ffffff">pytest</font></td>
 </tr></table>
 
 ## Features
@@ -232,12 +232,12 @@ To enable the social preview image for this repository:
 ---
 
 <p align="center">
-  <span style="color:#8b949e;font-size:13px;font-family:system-ui,sans-serif;">Built with</span><br>
+  <font color="#8b949e">Built with</font><br>
 <table><tr>
-<td style="padding:3px 10px;background:#10b98122;border:1px solid #10b98155;border-radius:4px;color:#34d399;font-size:12px;font-family:system-ui,sans-serif;">LangGraph</td>
-<td style="padding:3px 10px;background:#10b98122;border:1px solid #10b98155;border-radius:4px;color:#34d399;font-size:12px;font-family:system-ui,sans-serif;">LangChain</td>
-<td style="padding:3px 10px;background:#3b82f622;border:1px solid #3b82f655;border-radius:4px;color:#60a5fa;font-size:12px;font-family:system-ui,sans-serif;">Python</td>
-<td style="padding:3px 10px;background:#f9731622;border:1px solid #f9731655;border-radius:4px;color:#fb923c;font-size:12px;font-family:system-ui,sans-serif;">SQLite</td>
+<td align="center" bgcolor="#10b981"><font color="#ffffff">LangGraph</font></td>
+<td align="center" bgcolor="#10b981"><font color="#ffffff">LangChain</font></td>
+<td align="center" bgcolor="#3b82f6"><font color="#ffffff">Python</font></td>
+<td align="center" bgcolor="#f97316"><font color="#ffffff">SQLite</font></td>
 </tr></table>
 </p>
 
