@@ -103,12 +103,12 @@
     ],
     "beforeTabFileRead": [
       {
-        "command": "d:\\test_agent\\learning_agent\\.venv\\Scripts\\python.exe d:\\test_agent\\learning_agent\\.cursor\\hooks\\before_read_file.py"
+        "command": "d:\\test_agent\\learning_agent\\.venv\\Scripts\\python.exe d:\\test_agent\\learning_agent\\.cursor\\hooks\\before_tab_file_read.py"
       }
     ],
     "afterTabFileEdit": [
       {
-        "command": "d:\\test_agent\\learning_agent\\.venv\\Scripts\\python.exe d:\\test_agent\\learning_agent\\.cursor\\hooks\\after_file_edit.py"
+        "command": "d:\\test_agent\\learning_agent\\.venv\\Scripts\\python.exe d:\\test_agent\\learning_agent\\.cursor\\hooks\\after_tab_file_edit.py"
       }
     ]
   }

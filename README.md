@@ -69,6 +69,35 @@ flowchart TD
     SessionEnd -->|"check"| ConvSummarizer["conversation_summarizer_agent.py"]
 ```
 
+## Sentiment Arc Analysis
+
+Classifies sessions into archetypes based on emotional trajectory:
+
+- **Smooth convergence** -- session resolved cleanly
+- **Escalating frustration** -- things get worse over time
+- **Looping** -- agent repeats failed approaches
+- **Mismatched effort** -- user is clear but agent relevance degrades
+- **Rapid resolution, steady friction, abandoned, inconclusive**
+
+Uses `cardiffnlp/twitter-roberta-base-sentiment-latest` for per-turn sentiment scoring and `sentence-transformers/all-MiniLM-L6-v2` for geometric features (user self-distance, model relevance trend).
+
+```bash
+.venv/Scripts\python.exe run_sentiment_arc.py
+```
+
+## Learning Loop
+
+The learning analyzer extracts patterns from session telemetry and generates Cursor rules (`.mdc` format) to improve agent behavior over time:
+
+1. **Extract** -- tool failures, file hotspots, sentiment patterns, subagent patterns, user corrections, and more
+2. **Score** -- correlate rules with sentiment outcomes (positive/negative effectiveness)
+3. **Prune** -- remove noise, cap at 25 active rules
+4. **Apply** -- rules auto-apply via `.cursor/rules/learning-critical.mdc`
+
+```bash
+.venv/Scripts\python.exe .cursor/hooks/learning_analyzer.py --bootstrap
+```
+
 See [DOCS.md](DOCS.md) for full documentation including hooks system architecture, database schema details, skills system, MCP integration, CLI tools, and troubleshooting.
 
 ## License

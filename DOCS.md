@@ -61,17 +61,22 @@ flowchart TD
 
 ```
 d:\test_agent\learning_agent\
-├── AGENTS.md                          # Agent behavior rules (no flowery language, sequential subagents)
-├── DOCS.md                            # This file -- comprehensive AI agent development guide
-├── run_sentiment_arc.py               # Entry point script for sentiment arc analysis
+├── AGENTS.md                          # Agent behavior rules
+├── DOCS.md                            # This file -- comprehensive documentation
+├── README.md                          # GitHub landing page
+├── LICENSE                            # MIT License
+├── run_sentiment_arc.py               # Entry point for sentiment arc analysis
+├── verify_gpu.py                      # GPU availability check
 ├── .cursor/
 │   ├── hooks.json                     # Hook event routing (20 event types, version 1)
-│   ├── llm.env                        # LLM API credentials (API_KEY, BASE_URL, REASONING_MODEL)
-│   ├── hooks/                         # Core system (~35 Python files)
+│   ├── llm.env.example                # LLM API configuration template
+│   ├── hooks/                         # Core system (~39 Python files)
 │   │   ├── conversation_recorder.py   # Shared utility: session CRUD, event recording, ConversationLinker
 │   │   ├── narratives_db.py           # SQLite storage layer: 8 schema migrations, 11 tables
 │   │   ├── learning_analyzer.py       # Learning signal extraction: generates .mdc rules from telemetry
-│   │   ├── summarizer_agent.py        # LangGraph StateGraph: session-level summarizer (4-node graph)
+│   │   ├── learning_rules_agent.py    # LangGraph learning rules agent
+│   │   ├── learning_rules_langgraph.py# LangGraph state graph for learning rules
+│   │   ├── summarizer_agent.py        # LangGraph StateGraph: session-level summarizer
 │   │   ├── conversation_summarizer_agent.py  # LangGraph: conversation-level summarizer
 │   │   ├── summarizer_daemon.py       # Background polling daemon (5s interval)
 │   │   ├── summarizer_daemon_launcher.py     # Windows DETACHED_PROCESS launcher
@@ -97,12 +102,32 @@ d:\test_agent\learning_agent\
 │   │   ├── subagent_start.py          # Records subagent launches
 │   │   ├── subagent_stop.py           # Records subagent termination
 │   │   ├── stop.py                    # Records agent loop termination
+│   │   ├── sentiment_arc_trigger.py   # Sentiment arc trigger hook
+│   │   ├── check_sentiment.py         # Sentiment check utility
 │   │   ├── view.py                    # CLI viewer for sessions
 │   │   ├── check_status.py            # System status utility
 │   │   ├── cleanup_sessions.py        # Session cleanup utility
 │   │   ├── debug_hook.py              # Universal debug logger
+│   │   ├── conftest.py                # Pytest configuration
+│   │   ├── test_narrative_system.py   # Narrative system tests
+│   │   ├── dashboard/                 # Streamlit analytics dashboard
+│   │   │   ├── dashboard.py           # Streamlit app entry point
+│   │   │   ├── db_queries.py          # SQLite query functions
+│   │   │   ├── write_config.py        # Dashboard config writer
+│   │   │   └── requirements.txt       # Dashboard dependencies
+│   │   ├── sentiment_arc/             # Sentiment arc analysis module
+│   │   │   ├── arc_analyzer.py        # Arc classification engine
+│   │   │   ├── arc_db.py              # Arc features database layer
+│   │   │   ├── batch_runner.py        # Batch analysis runner
+│   │   │   ├── config.py              # Sentiment arc configuration
+│   │   │   ├── dedup.py               # Deduplication utilities
+│   │   │   ├── embedder.py            # Embedding model wrapper
+│   │   │   ├── parser.py              # Session JSON parser
+│   │   │   ├── score_text.py          # Sentiment scoring
+│   │   │   ├── task_completion.py     # Task completion detection
+│   │   │   └── tests/                 # Test suite (10 test files)
 │   │   └── requirements.txt           # Python dependencies
-│   ├── skills/                        # 20+ specialized skill files for agent expertise
+│   ├── skills/                        # 25 specialized skill files
 │   │   ├── cursor-hooks-core/         # Hook lifecycle, protocol, events, troubleshooting
 │   │   ├── cursor-hooks-python/       # Python hooks, libraries, Kubernetes, secret detection
 │   │   ├── cursor-hooks-bash/         # Shell script hooks, jq, JSON parsing, command validation
@@ -121,15 +146,17 @@ d:\test_agent\learning_agent\
 │   │   ├── cursor-hooks-windows-dev/  # PowerShell, Windows paths, file locking, venv
 │   │   ├── session-analytics/         # SQLite analysis, query patterns, backfill
 │   │   ├── python-hook-debugging/     # Python hook debugging strategies
+│   │   ├── sqlite-patterns/           # SQLite patterns, migrations, WAL mode, fail-open CRUD
 │   │   ├── context7-integration/      # Context7 MCP for library docs
 │   │   ├── context7-parallel-research/  # Parallel Context7 execution
 │   │   ├── browser-use-testing/       # Frontend testing via cursor-ide-browser MCP
 │   │   ├── web-fetch-docs/            # Documentation retrieval via WebFetch
 │   │   ├── web-search-research/       # Real-time info gathering via WebSearch
 │   │   └── agent-skill-finder/        # Skill discovery and installation
-│   ├── plans/                         # Completed implementation plans
+│   ├── plans/                         # Completed implementation plans (6 files)
 │   └── rules/
-│       └── mcp-usage.mdc              # MCP usage best practices
+│       ├── mcp-usage.mdc              # MCP usage best practices
+│       └── learning-critical.mdc      # Auto-generated critical learning rules
 ```
 
 ### Runtime State (`.cursor/hooks/state/`)
@@ -198,7 +225,7 @@ Hook  --> stderr:  Diagnostic logging (does not interfere with stdout protocol)
 | Event                  | When It Fires                       | Hooks Attached                                     |
 | ---------------------- | ----------------------------------- | -------------------------------------------------- |
 | `sessionStart`         | A new Cursor session begins         | `session_start.py`, `summarizer_daemon.py --start` |
-| `sessionEnd`           | A Cursor session ends               | `session_end.py` (30s timeout)                     |
+| `sessionEnd`           | A Cursor session ends               | `session_end.py` (30s timeout), `sentiment_arc_trigger.py` |
 | `preToolUse`           | Before a tool is invoked            | `pre_tool_use.py`                                  |
 | `postToolUse`          | After a tool completes              | `post_tool_use.py`                                 |
 | `postToolUseFailure`   | After a tool fails                  | `post_tool_use_failure.py`                         |
