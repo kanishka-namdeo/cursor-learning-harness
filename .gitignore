@@ -48,15 +48,9 @@ dmypy.json
 # Jupyter
 .ipynb_checkpoints/
 
-# Daemon/State files (auto-generated)
-.cursor/hooks/state/summarizer_daemon.pid
-.cursor/hooks/state/.last_extracted_signals.json
-.cursor/hooks/state/learning_rules_changelog.jsonl*
-.cursor/hooks/state/.learning_rules_lock
-.cursor/hooks/state/session_index.json
-.cursor/hooks/state/sessions/
-.cursor/hooks/state/*.pid
-.cursor/hooks/state/*.lock
+# Auto-generated state (do not track)
+.cursor/hooks/state/
+!.cursor/hooks/state/.gitkeep
 
 # Logs
 *.log
