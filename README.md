@@ -9,11 +9,11 @@
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/Python-3.13+-blue?style=for-the-badge&logo=python&logoColor=white" alt="Python 3.13+">
-  <img src="https://img.shields.io/badge/LangGraph-0.2.0+-green?style=for-the-badge" alt="LangGraph">
-  <img src="https://img.shields.io/badge/License-MIT-yellow?style=for-the-badge" alt="MIT License">
-  <img src="https://img.shields.io/badge/SQLite-3-orange?style=for-the-badge&logo=sqlite&logoColor=white" alt="SQLite">
-  <img src="https://img.shields.io/badge/Streamlit-Dashboard-red?style=for-the-badge&logo=streamlit&logoColor=white" alt="Streamlit">
+  <span style="display:inline-block;padding:4px 12px;margin:2px 4px;background:#3b82f622;border:1px solid #3b82f6;border-radius:6px;color:#60a5fa;font-size:13px;font-weight:500;font-family:system-ui,sans-serif;">Python 3.13+</span>
+  <span style="display:inline-block;padding:4px 12px;margin:2px 4px;background:#10b98122;border:1px solid #10b981;border-radius:6px;color:#34d399;font-size:13px;font-weight:500;font-family:system-ui,sans-serif;">LangGraph 0.2+</span>
+  <span style="display:inline-block;padding:4px 12px;margin:2px 4px;background:#f59e0b22;border:1px solid #f59e0b;border-radius:6px;color:#fbbf24;font-size:13px;font-weight:500;font-family:system-ui,sans-serif;">MIT License</span>
+  <span style="display:inline-block;padding:4px 12px;margin:2px 4px;background:#f9731622;border:1px solid #f97316;border-radius:6px;color:#fb923c;font-size:13px;font-weight:500;font-family:system-ui,sans-serif;">SQLite 3</span>
+  <span style="display:inline-block;padding:4px 12px;margin:2px 4px;background:#ef444422;border:1px solid #ef4444;border-radius:6px;color:#f87171;font-size:13px;font-weight:500;font-family:system-ui,sans-serif;">Streamlit</span>
 </p>
 
 <p align="center">
@@ -22,16 +22,46 @@
 
 ---
 
+## At a Glance
+
+<p align="center">
+<table border="0" cellpadding="8" cellspacing="0" width="100%">
+<tr>
+<td width="50%" style="background:#161b22;border:1px solid #30363d;border-radius:10px;padding:16px;vertical-align:top;">
+<strong style="color:#60a5fa;font-size:15px;font-family:system-ui,sans-serif;">Session Recording</strong><br>
+<span style="color:#8b949e;font-size:13px;font-family:system-ui,sans-serif;">Captures the full lifecycle of Cursor AI coding sessions — initial thoughts, tool calls, shell commands, file edits, and final output</span>
+</td>
+<td width="50%" style="background:#161b22;border:1px solid #30363d;border-radius:10px;padding:16px;vertical-align:top;">
+<strong style="color:#a78bfa;font-size:15px;font-family:system-ui,sans-serif;">AI Summarization</strong><br>
+<span style="color:#8b949e;font-size:13px;font-family:system-ui,sans-serif;">Uses LangGraph agents to generate human-readable narrative summaries of each session</span>
+</td>
+</tr>
+<tr><td colspan="2" height="8"></td></tr>
+<tr>
+<td width="50%" style="background:#161b22;border:1px solid #30363d;border-radius:10px;padding:16px;vertical-align:top;">
+<strong style="color:#22d3ee;font-size:15px;font-family:system-ui,sans-serif;">Sentiment Arc Analysis</strong><br>
+<span style="color:#8b949e;font-size:13px;font-family:system-ui,sans-serif;">Classifies sessions into archetypes (smooth convergence, escalating frustration, looping, etc.) based on emotional trajectory</span>
+</td>
+<td width="50%" style="background:#161b22;border:1px solid #30363d;border-radius:10px;padding:16px;vertical-align:top;">
+<strong style="color:#34d399;font-size:15px;font-family:system-ui,sans-serif;">Self-Improving Loop</strong><br>
+<span style="color:#8b949e;font-size:13px;font-family:system-ui,sans-serif;">Extracts actionable patterns from session telemetry and generates Cursor rules to improve agent behavior over time</span>
+</td>
+</tr>
+</table>
+</p>
+
+---
+
 ## Tech Stack
 
 <p align="center">
-  <img src="https://img.shields.io/badge/LangChain-0.3.0+-green?style=flat-square" alt="LangChain">
-  <img src="https://img.shields.io/badge/OpenAI-API-10b981?style=flat-square&logo=openai&logoColor=white" alt="OpenAI API">
-  <img src="https://img.shields.io/badge/HuggingFace-Transformers-orange?style=flat-square&logo=huggingface&logoColor=white" alt="HuggingFace">
-  <img src="https://img.shields.io/badge/PyTorch-2.0+-ee4c2c?style=flat-square&logo=pytorch&logoColor=white" alt="PyTorch">
-  <img src="https://img.shields.io/badge/Plotly-3D Charts-3f4f75?style=flat-square&logo=plotly&logoColor=white" alt="Plotly">
-  <img src="https://img.shields.io/badge/Ruff-Linter-FFD700?style=flat-square" alt="Ruff">
-  <img src="https://img.shields.io/badge/pytest-Testing-0A9EDC?style=flat-square&logo=pytest&logoColor=white" alt="pytest">
+  <span style="display:inline-block;padding:3px 10px;margin:2px;background:#10b98122;border:1px solid #10b98155;border-radius:4px;color:#34d399;font-size:12px;font-family:system-ui,sans-serif;">LangChain 0.3+</span>
+  <span style="display:inline-block;padding:3px 10px;margin:2px;background:#10b98122;border:1px solid #10b98155;border-radius:4px;color:#34d399;font-size:12px;font-family:system-ui,sans-serif;">OpenAI API</span>
+  <span style="display:inline-block;padding:3px 10px;margin:2px;background:#f9731622;border:1px solid #f9731655;border-radius:4px;color:#fb923c;font-size:12px;font-family:system-ui,sans-serif;">HuggingFace</span>
+  <span style="display:inline-block;padding:3px 10px;margin:2px;background:#ee4c2c22;border:1px solid #ee4c2c55;border-radius:4px;color:#f87171;font-size:12px;font-family:system-ui,sans-serif;">PyTorch 2.0+</span>
+  <span style="display:inline-block;padding:3px 10px;margin:2px;background:#6366f122;border:1px solid #6366f155;border-radius:4px;color:#818cf8;font-size:12px;font-family:system-ui,sans-serif;">Plotly</span>
+  <span style="display:inline-block;padding:3px 10px;margin:2px;background:#fbbf2422;border:1px solid #fbbf2455;border-radius:4px;color:#fbbf24;font-size:12px;font-family:system-ui,sans-serif;">Ruff</span>
+  <span style="display:inline-block;padding:3px 10px;margin:2px;background:#0a9edc22;border:1px solid #0a9edc55;border-radius:4px;color:#38bdf8;font-size:12px;font-family:system-ui,sans-serif;">pytest</span>
 </p>
 
 ## Features
@@ -202,11 +232,11 @@ To enable the social preview image for this repository:
 ---
 
 <p align="center">
-  Built with
-  <img src="https://img.shields.io/badge/LangGraph-0.2.0+-green?style=flat-square" alt="LangGraph">
-  <img src="https://img.shields.io/badge/LangChain-0.3.0+-green?style=flat-square" alt="LangChain">
-  <img src="https://img.shields.io/badge/Python-3.13+-blue?style=flat-square" alt="Python">
-  <img src="https://img.shields.io/badge/SQLite-3-orange?style=flat-square" alt="SQLite">
+  <span style="color:#8b949e;font-size:13px;font-family:system-ui,sans-serif;">Built with</span><br>
+  <span style="display:inline-block;padding:3px 10px;margin:2px;background:#10b98122;border:1px solid #10b98155;border-radius:4px;color:#34d399;font-size:12px;font-family:system-ui,sans-serif;">LangGraph</span>
+  <span style="display:inline-block;padding:3px 10px;margin:2px;background:#10b98122;border:1px solid #10b98155;border-radius:4px;color:#34d399;font-size:12px;font-family:system-ui,sans-serif;">LangChain</span>
+  <span style="display:inline-block;padding:3px 10px;margin:2px;background:#3b82f622;border:1px solid #3b82f655;border-radius:4px;color:#60a5fa;font-size:12px;font-family:system-ui,sans-serif;">Python</span>
+  <span style="display:inline-block;padding:3px 10px;margin:2px;background:#f9731622;border:1px solid #f9731655;border-radius:4px;color:#fb923c;font-size:12px;font-family:system-ui,sans-serif;">SQLite</span>
 </p>
 
 <p align="center">

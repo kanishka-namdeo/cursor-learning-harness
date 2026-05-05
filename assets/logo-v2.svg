@@ -1,0 +1,131 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <!-- Background gradient -->
+    <radialGradient id="bgRadial" cx="50%" cy="50%" r="70%">
+      <stop offset="0%" style="stop-color:#1a1f2e;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0a0f1a;stop-opacity:1" />
+    </radialGradient>
+    
+    <!-- Node gradients -->
+    <radialGradient id="nodeBlue" cx="40%" cy="40%">
+      <stop offset="0%" style="stop-color:#60a5fa" />
+      <stop offset="100%" style="stop-color:#3b82f6" />
+    </radialGradient>
+    
+    <radialGradient id="nodePurple" cx="40%" cy="40%">
+      <stop offset="0%" style="stop-color:#a78bfa" />
+      <stop offset="100%" style="stop-color:#8b5cf6" />
+    </radialGradient>
+    
+    <radialGradient id="nodeCyan" cx="40%" cy="40%">
+      <stop offset="0%" style="stop-color:#22d3ee" />
+      <stop offset="100%" style="stop-color:#06b6d4" />
+    </radialGradient>
+    
+    <!-- Glow filter -->
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="8" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    
+    <filter id="softGlow">
+      <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    
+    <!-- Shadow -->
+    <filter id="shadow">
+      <feDropShadow dx="0" dy="4" stdDeviation="8" flood-color="#000" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="512" height="512" rx="80" fill="url(#bgRadial)"/>
+  
+  <!-- Subtle border -->
+  <rect x="4" y="4" width="504" height="504" rx="76" fill="none" stroke="#30363d" stroke-width="1" opacity="0.3"/>
+
+  <!-- Neural network structure -->
+  <g filter="url(#softGlow)">
+    <!-- Outer ring -->
+    <circle cx="256" cy="256" r="200" fill="none" stroke="#30363d" stroke-width="1" opacity="0.3"/>
+    <circle cx="256" cy="256" r="180" fill="none" stroke="#30363d" stroke-width="0.5" opacity="0.2"/>
+    
+    <!-- Connection lines - structured network -->
+    <!-- Input layer to hidden layer 1 -->
+    <line x1="100" y1="140" x2="190" y2="100" stroke="#3b82f6" stroke-width="2" opacity="0.4"/>
+    <line x1="100" y1="140" x2="190" y2="180" stroke="#3b82f6" stroke-width="2" opacity="0.3"/>
+    <line x1="100" y1="140" x2="190" y2="260" stroke="#3b82f6" stroke-width="2" opacity="0.2"/>
+    <line x1="100" y1="220" x2="190" y2="100" stroke="#3b82f6" stroke-width="2" opacity="0.2"/>
+    <line x1="100" y1="220" x2="190" y2="180" stroke="#3b82f6" stroke-width="2" opacity="0.3"/>
+    <line x1="100" y1="220" x2="190" y2="260" stroke="#3b82f6" stroke-width="2" opacity="0.4"/>
+    <line x1="100" y1="300" x2="190" y2="180" stroke="#3b82f6" stroke-width="2" opacity="0.2"/>
+    <line x1="100" y1="300" x2="190" y2="260" stroke="#3b82f6" stroke-width="2" opacity="0.3"/>
+    <line x1="100" y1="380" x2="190" y2="260" stroke="#3b82f6" stroke-width="2" opacity="0.4"/>
+    
+    <!-- Hidden layer 1 to hidden layer 2 -->
+    <line x1="190" y1="100" x2="310" y2="140" stroke="#8b5cf6" stroke-width="2" opacity="0.4"/>
+    <line x1="190" y1="100" x2="310" y2="220" stroke="#8b5cf6" stroke-width="2" opacity="0.2"/>
+    <line x1="190" y1="180" x2="310" y2="140" stroke="#8b5cf6" stroke-width="2" opacity="0.3"/>
+    <line x1="190" y1="180" x2="310" y2="220" stroke="#8b5cf6" stroke-width="2" opacity="0.4"/>
+    <line x1="190" y1="180" x2="310" y2="300" stroke="#8b5cf6" stroke-width="2" opacity="0.2"/>
+    <line x1="190" y1="260" x2="310" y2="220" stroke="#8b5cf6" stroke-width="2" opacity="0.3"/>
+    <line x1="190" y1="260" x2="310" y2="300" stroke="#8b5cf6" stroke-width="2" opacity="0.4"/>
+    <line x1="190" y1="260" x2="310" y2="380" stroke="#8b5cf6" stroke-width="2" opacity="0.2"/>
+    
+    <!-- Hidden layer 2 to output layer -->
+    <line x1="310" y1="140" x2="400" y2="220" stroke="#06b6d4" stroke-width="2" opacity="0.4"/>
+    <line x1="310" y1="220" x2="400" y2="220" stroke="#06b6d4" stroke-width="2" opacity="0.5"/>
+    <line x1="310" y1="300" x2="400" y2="220" stroke="#06b6d4" stroke-width="2" opacity="0.4"/>
+    <line x1="310" y1="380" x2="400" y2="220" stroke="#06b6d4" stroke-width="2" opacity="0.3"/>
+    
+    <!-- Input layer nodes (blue) -->
+    <circle cx="100" cy="140" r="10" fill="url(#nodeBlue)"/>
+    <circle cx="100" cy="140" r="5" fill="#93c5fd"/>
+    <circle cx="100" cy="220" r="10" fill="url(#nodeBlue)"/>
+    <circle cx="100" cy="220" r="5" fill="#93c5fd"/>
+    <circle cx="100" cy="300" r="8" fill="url(#nodeBlue)"/>
+    <circle cx="100" cy="300" r="4" fill="#93c5fd"/>
+    <circle cx="100" cy="380" r="8" fill="url(#nodeBlue)"/>
+    <circle cx="100" cy="380" r="4" fill="#93c5fd"/>
+    
+    <!-- Hidden layer 1 nodes (purple) -->
+    <circle cx="190" cy="100" r="12" fill="url(#nodePurple)"/>
+    <circle cx="190" cy="100" r="6" fill="#c4b5fd"/>
+    <circle cx="190" cy="180" r="14" fill="url(#nodePurple)"/>
+    <circle cx="190" cy="180" r="7" fill="#c4b5fd"/>
+    <circle cx="190" cy="260" r="14" fill="url(#nodePurple)"/>
+    <circle cx="190" cy="260" r="7" fill="#c4b5fd"/>
+    
+    <!-- Hidden layer 2 nodes (purple) -->
+    <circle cx="310" cy="140" r="12" fill="url(#nodePurple)"/>
+    <circle cx="310" cy="140" r="6" fill="#c4b5fd"/>
+    <circle cx="310" cy="220" r="16" fill="url(#nodePurple)" filter="url(#glow)"/>
+    <circle cx="310" cy="220" r="8" fill="#c4b5fd"/>
+    <circle cx="310" cy="300" r="14" fill="url(#nodePurple)"/>
+    <circle cx="310" cy="300" r="7" fill="#c4b5fd"/>
+    <circle cx="310" cy="380" r="10" fill="url(#nodePurple)"/>
+    <circle cx="310" cy="380" r="5" fill="#c4b5fd"/>
+    
+    <!-- Output layer node (cyan) -->
+    <circle cx="400" cy="220" r="18" fill="url(#nodeCyan)"/>
+    <circle cx="400" cy="220" r="9" fill="#67e8f9"/>
+    <circle cx="400" cy="220" r="24" fill="none" stroke="#06b6d4" stroke-width="1" opacity="0.3"/>
+    <circle cx="400" cy="220" r="32" fill="none" stroke="#06b6d4" stroke-width="0.5" opacity="0.2"/>
+    
+    <!-- Central cursor arrow (overlay) -->
+    <g transform="translate(256, 256) scale(0.8)">
+      <polygon points="0,-20 -12,16 0,8 -4,24 4,18 12,8 0,20" fill="#0d1117" opacity="0.8"/>
+      <polygon points="0,-16 -9,12 0,6 -3,20 3,15 9,6 0,16" fill="url(#nodePurple)"/>
+    </g>
+  </g>
+  
+  <!-- Subtle highlight -->
+  <circle cx="310" cy="220" r="48" fill="#8b5cf6" opacity="0.05"/>
+</svg>

@@ -1,0 +1,245 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 640" width="1280" height="640">
+  <defs>
+    <!-- Background gradients -->
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a0f1a;stop-opacity:1" />
+      <stop offset="40%" style="stop-color:#0d1117;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0a0f1a;stop-opacity:1" />
+    </linearGradient>
+    
+    <!-- Blue glow radial -->
+    <radialGradient id="blueGlow" cx="30%" cy="40%">
+      <stop offset="0%" style="stop-color:#3b82f6;stop-opacity:0.15" />
+      <stop offset="100%" style="stop-color:#3b82f6;stop-opacity:0" />
+    </radialGradient>
+    
+    <!-- Purple glow radial -->
+    <radialGradient id="purpleGlow" cx="70%" cy="60%">
+      <stop offset="0%" style="stop-color:#8b5cf6;stop-opacity:0.12" />
+      <stop offset="100%" style="stop-color:#8b5cf6;stop-opacity:0" />
+    </radialGradient>
+    
+    <!-- Text gradient -->
+    <linearGradient id="textGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#60a5fa" />
+      <stop offset="50%" style="stop-color:#a78bfa" />
+      <stop offset="100%" style="stop-color:#67e8f9" />
+    </linearGradient>
+    
+    <!-- Accent line gradient -->
+    <linearGradient id="lineGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#3b82f6;stop-opacity:0" />
+      <stop offset="20%" style="stop-color:#3b82f6;stop-opacity:0.8" />
+      <stop offset="50%" style="stop-color:#8b5cf6;stop-opacity:1" />
+      <stop offset="80%" style="stop-color:#06b6d4;stop-opacity:0.8" />
+      <stop offset="100%" style="stop-color:#06b6d4;stop-opacity:0" />
+    </linearGradient>
+    
+    <!-- Node glow -->
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="6" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    
+    <!-- Soft shadow -->
+    <filter id="softShadow">
+      <feDropShadow dx="0" dy="4" stdDeviation="12" flood-color="#000" flood-opacity="0.3"/>
+    </filter>
+    
+    <!-- Card background gradient -->
+    <linearGradient id="cardBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#161b22;stop-opacity:0.8" />
+      <stop offset="100%" style="stop-color:#0d1117;stop-opacity:0.8" />
+    </linearGradient>
+    
+    <!-- Dot pattern -->
+    <pattern id="dotGrid" x="0" y="0" width="30" height="30" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1" fill="#ffffff" opacity="0.03"/>
+    </pattern>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1280" height="640" fill="url(#bgGrad)"/>
+  
+  <!-- Dot pattern overlay -->
+  <rect width="1280" height="640" fill="url(#dotGrid)"/>
+  
+  <!-- Ambient glows -->
+  <rect width="1280" height="640" fill="url(#blueGlow)"/>
+  <rect width="1280" height="640" fill="url(#purpleGlow)"/>
+
+  <!-- Subtle grid lines -->
+  <g opacity="0.04" stroke="#ffffff" stroke-width="1">
+    <line x1="0" y1="100" x2="1280" y2="100"/>
+    <line x1="0" y1="200" x2="1280" y2="200"/>
+    <line x1="0" y1="300" x2="1280" y2="300"/>
+    <line x1="0" y1="400" x2="1280" y2="400"/>
+    <line x1="0" y1="500" x2="1280" y2="500"/>
+    <line x1="100" y1="0" x2="100" y2="640"/>
+    <line x1="300" y1="0" x2="300" y2="640"/>
+    <line x1="500" y1="0" x2="500" y2="640"/>
+    <line x1="700" y1="0" x2="700" y2="640"/>
+    <line x1="900" y1="0" x2="900" y2="640"/>
+    <line x1="1100" y1="0" x2="1100" y2="640"/>
+  </g>
+
+  <!-- LEFT SIDE: Neural network / brain visualization -->
+  <g filter="url(#glow)">
+    <!-- Connection lines - main structure -->
+    <line x1="200" y1="180" x2="320" y2="140" stroke="#3b82f6" stroke-width="1.5" opacity="0.3"/>
+    <line x1="320" y1="140" x2="440" y2="180" stroke="#8b5cf6" stroke-width="1.5" opacity="0.3"/>
+    <line x1="200" y1="260" x2="320" y2="220" stroke="#3b82f6" stroke-width="1.5" opacity="0.3"/>
+    <line x1="320" y1="220" x2="440" y2="260" stroke="#8b5cf6" stroke-width="1.5" opacity="0.3"/>
+    <line x1="200" y1="340" x2="320" y2="300" stroke="#3b82f6" stroke-width="1.5" opacity="0.3"/>
+    <line x1="320" y1="300" x2="440" y2="340" stroke="#8b5cf6" stroke-width="1.5" opacity="0.3"/>
+    <line x1="200" y1="420" x2="320" y2="380" stroke="#3b82f6" stroke-width="1.5" opacity="0.3"/>
+    <line x1="320" y1="380" x2="440" y2="420" stroke="#8b5cf6" stroke-width="1.5" opacity="0.3"/>
+    
+    <!-- Cross connections -->
+    <line x1="200" y1="260" x2="200" y2="180" stroke="#3b82f6" stroke-width="1" opacity="0.15"/>
+    <line x1="200" y1="340" x2="200" y2="260" stroke="#3b82f6" stroke-width="1" opacity="0.15"/>
+    <line x1="200" y1="420" x2="200" y2="340" stroke="#3b82f6" stroke-width="1" opacity="0.15"/>
+    <line x1="320" y1="300" x2="320" y2="220" stroke="#8b5cf6" stroke-width="1" opacity="0.15"/>
+    <line x1="320" y1="380" x2="320" y2="300" stroke="#8b5cf6" stroke-width="1" opacity="0.15"/>
+    <line x1="440" y1="260" x2="440" y2="180" stroke="#06b6d4" stroke-width="1" opacity="0.15"/>
+    <line x1="440" y1="340" x2="440" y2="260" stroke="#06b6d4" stroke-width="1" opacity="0.15"/>
+    <line x1="440" y1="420" x2="440" y2="340" stroke="#06b6d4" stroke-width="1" opacity="0.15"/>
+    
+    <!-- Diagonal connections -->
+    <line x1="200" y1="340" x2="320" y2="220" stroke="#60a5fa" stroke-width="0.8" opacity="0.1"/>
+    <line x1="320" y1="380" x2="440" y2="260" stroke="#a78bfa" stroke-width="0.8" opacity="0.1"/>
+    <line x1="200" y1="180" x2="320" y2="300" stroke="#60a5fa" stroke-width="0.8" opacity="0.1"/>
+    
+    <!-- Nodes - left column (blue) -->
+    <circle cx="200" cy="180" r="6" fill="#3b82f6" opacity="0.9"/>
+    <circle cx="200" cy="180" r="3" fill="#60a5fa"/>
+    <circle cx="200" cy="260" r="6" fill="#3b82f6" opacity="0.8"/>
+    <circle cx="200" cy="260" r="3" fill="#60a5fa"/>
+    <circle cx="200" cy="340" r="5" fill="#3b82f6" opacity="0.7"/>
+    <circle cx="200" cy="340" r="2.5" fill="#60a5fa"/>
+    <circle cx="200" cy="420" r="4" fill="#3b82f6" opacity="0.6"/>
+    <circle cx="200" cy="420" r="2" fill="#60a5fa"/>
+    
+    <!-- Nodes - middle column (purple) -->
+    <circle cx="320" cy="140" r="5" fill="#8b5cf6" opacity="0.8"/>
+    <circle cx="320" cy="140" r="2.5" fill="#a78bfa"/>
+    <circle cx="320" cy="220" r="7" fill="#8b5cf6" opacity="0.9"/>
+    <circle cx="320" cy="220" r="3.5" fill="#a78bfa"/>
+    <circle cx="320" cy="300" r="8" fill="#8b5cf6" opacity="1"/>
+    <circle cx="320" cy="300" r="4" fill="#a78bfa"/>
+    <circle cx="320" cy="380" r="6" fill="#8b5cf6" opacity="0.8"/>
+    <circle cx="320" cy="380" r="3" fill="#a78bfa"/>
+    
+    <!-- Nodes - right column (cyan) -->
+    <circle cx="440" cy="180" r="4" fill="#06b6d4" opacity="0.6"/>
+    <circle cx="440" cy="180" r="2" fill="#22d3ee"/>
+    <circle cx="440" cy="260" r="5" fill="#06b6d4" opacity="0.7"/>
+    <circle cx="440" cy="260" r="2.5" fill="#22d3ee"/>
+    <circle cx="440" cy="340" r="6" fill="#06b6d4" opacity="0.8"/>
+    <circle cx="440" cy="340" r="3" fill="#22d3ee"/>
+    <circle cx="440" cy="420" r="4" fill="#06b6d4" opacity="0.7"/>
+    <circle cx="440" cy="420" r="2" fill="#22d3ee"/>
+    
+    <!-- Central pulse point -->
+    <circle cx="320" cy="300" r="16" fill="none" stroke="#8b5cf6" stroke-width="1" opacity="0.2"/>
+    <circle cx="320" cy="300" r="24" fill="none" stroke="#8b5cf6" stroke-width="0.5" opacity="0.1"/>
+  </g>
+
+  <!-- RIGHT SIDE: Text content -->
+  
+  <!-- Title -->
+  <text x="680" y="200" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="44" font-weight="700" fill="url(#textGrad)">
+    Cursor Learning Agent
+  </text>
+  
+  <!-- Subtitle -->
+  <text x="680" y="240" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="18" font-weight="400" fill="#8b949e">
+    Self-improving AI coding assistant powered by LangGraph &amp; LangChain
+  </text>
+  
+  <!-- Accent line -->
+  <line x1="680" y1="265" x2="1200" y2="265" stroke="url(#lineGrad)" stroke-width="2"/>
+
+  <!-- Feature cards -->
+  <g>
+    <!-- Card 1: Session Recording -->
+    <rect x="680" y="290" width="250" height="120" rx="12" fill="url(#cardBg)" stroke="#30363d" stroke-width="1" filter="url(#softShadow)"/>
+    <circle cx="710" cy="315" r="14" fill="#3b82f6" opacity="0.2"/>
+    <path d="M705 315 L715 315 M710 310 L710 320" stroke="#60a5fa" stroke-width="2" stroke-linecap="round"/>
+    <text x="735" y="320" font-family="system-ui, sans-serif" font-size="16" font-weight="600" fill="#e6edf3">
+      Session Recording
+    </text>
+    <text x="700" y="350" font-family="system-ui, sans-serif" font-size="13" fill="#8b949e">
+      Captures full Cursor IDE lifecycle
+    </text>
+    <text x="700" y="370" font-family="system-ui, sans-serif" font-size="13" fill="#8b949e">
+      20 event types via hooks
+    </text>
+    <text x="700" y="390" font-family="system-ui, sans-serif" font-size="13" fill="#8b949e">
+      JSON + SQLite dual storage
+    </text>
+
+    <!-- Card 2: AI Summarization -->
+    <rect x="950" y="290" width="250" height="120" rx="12" fill="url(#cardBg)" stroke="#30363d" stroke-width="1" filter="url(#softShadow)"/>
+    <circle cx="980" cy="315" r="14" fill="#8b5cf6" opacity="0.2"/>
+    <path d="M974 312 L986 318 M986 312 L974 318" stroke="#a78bfa" stroke-width="2" stroke-linecap="round"/>
+    <text x="1005" y="320" font-family="system-ui, sans-serif" font-size="16" font-weight="600" fill="#e6edf3">
+      AI Summarization
+    </text>
+    <text x="970" y="350" font-family="system-ui, sans-serif" font-size="13" fill="#8b949e">
+      LangGraph StateGraph agent
+    </text>
+    <text x="970" y="370" font-family="system-ui, sans-serif" font-size="13" fill="#8b949e">
+      Session &amp; conversation-level
+    </text>
+    <text x="970" y="390" font-family="system-ui, sans-serif" font-size="13" fill="#8b949e">
+      Human-readable narratives
+    </text>
+
+    <!-- Card 3: Sentiment Analysis -->
+    <rect x="680" y="430" width="250" height="120" rx="12" fill="url(#cardBg)" stroke="#30363d" stroke-width="1" filter="url(#softShadow)"/>
+    <circle cx="710" cy="455" r="14" fill="#06b6d4" opacity="0.2"/>
+    <path d="M704 455 Q707 448 710 455 Q713 462 716 455" stroke="#22d3ee" stroke-width="2" fill="none"/>
+    <text x="735" y="460" font-family="system-ui, sans-serif" font-size="16" font-weight="600" fill="#e6edf3">
+      Sentiment Analysis
+    </text>
+    <text x="700" y="490" font-family="system-ui, sans-serif" font-size="13" fill="#8b949e">
+      8 session archetypes
+    </text>
+    <text x="700" y="510" font-family="system-ui, sans-serif" font-size="13" fill="#8b949e">
+      HuggingFace RoBERTa scoring
+    </text>
+    <text x="700" y="530" font-family="system-ui, sans-serif" font-size="13" fill="#8b949e">
+      Geometric feature analysis
+    </text>
+
+    <!-- Card 4: Self-Improving -->
+    <rect x="950" y="430" width="250" height="120" rx="12" fill="url(#cardBg)" stroke="#30363d" stroke-width="1" filter="url(#softShadow)"/>
+    <circle cx="980" cy="455" r="14" fill="#10b981" opacity="0.2"/>
+    <path d="M974 455 L980 462 L986 448" stroke="#34d399" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="1005" y="460" font-family="system-ui, sans-serif" font-size="16" font-weight="600" fill="#e6edf3">
+      Self-Improving Loop
+    </text>
+    <text x="970" y="490" font-family="system-ui, sans-serif" font-size="13" fill="#8b949e">
+      Pattern extraction &amp; scoring
+    </text>
+    <text x="970" y="510" font-family="system-ui, sans-serif" font-size="13" fill="#8b949e">
+      Auto-generated Cursor rules
+    </text>
+    <text x="970" y="530" font-family="system-ui, sans-serif" font-size="13" fill="#8b949e">
+      10 categories of learning signals
+    </text>
+  </g>
+
+  <!-- Bottom accent line -->
+  <line x1="0" y1="620" x2="1280" y2="620" stroke="url(#lineGrad)" stroke-width="2" opacity="0.4"/>
+  
+  <!-- Corner decorations -->
+  <circle cx="1200" cy="80" r="40" fill="none" stroke="#3b82f6" stroke-width="0.5" opacity="0.1"/>
+  <circle cx="1200" cy="80" r="60" fill="none" stroke="#3b82f6" stroke-width="0.3" opacity="0.05"/>
+  <circle cx="80" cy="560" r="30" fill="none" stroke="#8b5cf6" stroke-width="0.5" opacity="0.1"/>
+  <circle cx="80" cy="560" r="50" fill="none" stroke="#8b5cf6" stroke-width="0.3" opacity="0.05"/>
+</svg>
