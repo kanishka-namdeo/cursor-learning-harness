@@ -60,7 +60,7 @@ flowchart TD
 ## 2. Directory Structure
 
 ```
-d:\test_agent\learning_agent\
+d:\test_agent\cursor-learning-harness\
 ├── AGENTS.md                          # Agent behavior rules
 ├── DOCS.md                            # This file -- comprehensive documentation
 ├── README.md                          # GitHub landing page
@@ -308,7 +308,7 @@ The central utility class used by all recording hooks.
     "python_version": "3.13",
     "git_branch": "main",
     "git_commit": "abc123",
-    "workspace_roots": ["d:\\test_agent\\learning_agent"]
+    "workspace_roots": ["d:\\test_agent\\cursor-learning-harness"]
   },
   "summary": {}
 }

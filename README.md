@@ -1,6 +1,38 @@
-# Cursor Learning Agent
+<p align="center">
+  <img src="assets/logo-128x128.png" alt="Cursor Learning Harness Logo" width="128" height="128">
+</p>
 
-Automated learning system for Cursor IDE. Records every AI coding session, generates summaries, tracks sentiment changes, and continuously improves agent behavior over time.
+<h1 align="center">Cursor Learning Harness</h1>
+
+<p align="center">
+  <strong>Self-Improving AI Coding Assistant with LangGraph & LangChain</strong>
+</p>
+
+<p align="center">
+  <img src="https://img.shields.io/badge/Python-3.13+-blue?style=for-the-badge&logo=python&logoColor=white" alt="Python 3.13+">
+  <img src="https://img.shields.io/badge/LangGraph-0.2.0+-green?style=for-the-badge" alt="LangGraph">
+  <img src="https://img.shields.io/badge/License-MIT-yellow?style=for-the-badge" alt="MIT License">
+  <img src="https://img.shields.io/badge/SQLite-3-orange?style=for-the-badge&logo=sqlite&logoColor=white" alt="SQLite">
+  <img src="https://img.shields.io/badge/Streamlit-Dashboard-red?style=for-the-badge&logo=streamlit&logoColor=white" alt="Streamlit">
+</p>
+
+<p align="center">
+  <em>Records every AI coding session, generates narrative summaries, tracks sentiment arcs, and continuously improves agent behavior over time.</em>
+</p>
+
+---
+
+## Tech Stack
+
+<p align="center">
+  <img src="https://img.shields.io/badge/LangChain-0.3.0+-green?style=flat-square" alt="LangChain">
+  <img src="https://img.shields.io/badge/OpenAI-API-10b981?style=flat-square&logo=openai&logoColor=white" alt="OpenAI API">
+  <img src="https://img.shields.io/badge/HuggingFace-Transformers-orange?style=flat-square&logo=huggingface&logoColor=white" alt="HuggingFace">
+  <img src="https://img.shields.io/badge/PyTorch-2.0+-ee4c2c?style=flat-square&logo=pytorch&logoColor=white" alt="PyTorch">
+  <img src="https://img.shields.io/badge/Plotly-3D Charts-3f4f75?style=flat-square&logo=plotly&logoColor=white" alt="Plotly">
+  <img src="https://img.shields.io/badge/Ruff-Linter-FFD700?style=flat-square" alt="Ruff">
+  <img src="https://img.shields.io/badge/pytest-Testing-0A9EDC?style=flat-square&logo=pytest&logoColor=white" alt="pytest">
+</p>
 
 ## Features
 
@@ -69,6 +101,65 @@ flowchart TD
     SessionEnd -->|"check"| ConvSummarizer["conversation_summarizer_agent.py"]
 ```
 
+## How It Works
+
+```
+┌─────────────────────────────────────────────────────────────────┐
+│                      Cursor IDE Events                          │
+│  sessionStart · toolUse · shellCommand · fileEdit · MCP calls   │
+└────────────────────────────┬────────────────────────────────────┘
+                             │
+                    ┌────────▼────────┐
+                    │   Hooks Router   │
+                    │  (hooks.json)    │
+                    └────────┬────────┘
+                             │
+              ┌──────────────┼──────────────┐
+              │              │              │
+     ┌────────▼──────┐ ┌────▼─────┐ ┌──────▼──────┐
+     │  Session JSON │ │  SQLite   │ │  Summarizer │
+     │  (Primary)    │ │  (Mirror) │ │   Daemon    │
+     └───────────────┘ └──────────┘ └──────┬──────┘
+                                           │
+                              ┌────────────▼────────────┐
+                              │    LangGraph Agent       │
+                              │  (StateGraph Pipeline)   │
+                              └────────────┬────────────┘
+                                           │
+                    ┌──────────────────────┼──────────────────────┐
+                    │                      │                      │
+           ┌────────▼────────┐   ┌────────▼────────┐   ┌────────▼────────┐
+           │  Narrative      │   │  Sentiment      │   │  Learning       │
+           │  Summaries      │   │  Arc Analysis   │   │  Analyzer       │
+           └─────────────────┘   └─────────────────┘   └────────┬────────┘
+                                                                │
+                                                       ┌────────▼────────┐
+                                                       │  Cursor Rules   │
+                                                       │  (.mdc files)   │
+                                                       └─────────────────┘
+```
+
+## Project Structure
+
+```
+cursor-learning-harness/
+├── .cursor/
+│   ├── hooks/                  # Hook scripts (Python)
+│   │   ├── session_start.py    # Session initialization
+│   │   ├── session_end.py      # Session finalization
+│   │   ├── summarizer_agent.py # LangGraph summarization
+│   │   ├── narratives_db.py    # SQLite database ops
+│   │   ├── learning_analyzer.py# Pattern extraction
+│   │   └── dashboard/          # Streamlit dashboard
+│   ├── rules/                  # Auto-generated learning rules
+│   ├── skills/                 # Agent skill definitions
+│   └── hooks.json              # Event routing configuration
+├── assets/                     # Repository graphics
+├── DOCS.md                     # Full documentation (1600+ lines)
+├── README.md                   # This file
+└── .venv/                      # Python virtual environment
+```
+
 ## Sentiment Arc Analysis
 
 Classifies sessions into archetypes based on emotional trajectory:
@@ -99,6 +190,28 @@ The learning analyzer extracts patterns from session telemetry and generates Cur
 ```
 
 See [DOCS.md](DOCS.md) for full documentation including hooks system architecture, database schema details, skills system, MCP integration, CLI tools, and troubleshooting.
+
+## Setup Social Preview
+
+To enable the social preview image for this repository:
+
+1. Go to **Settings** > **Social Preview** in your GitHub repository
+2. Click **Edit** and upload `assets/social-preview.png` (1280x640)
+3. This image will appear when sharing the repo on Twitter, Discord, etc.
+
+---
+
+<p align="center">
+  Built with
+  <img src="https://img.shields.io/badge/LangGraph-0.2.0+-green?style=flat-square" alt="LangGraph">
+  <img src="https://img.shields.io/badge/LangChain-0.3.0+-green?style=flat-square" alt="LangChain">
+  <img src="https://img.shields.io/badge/Python-3.13+-blue?style=flat-square" alt="Python">
+  <img src="https://img.shields.io/badge/SQLite-3-orange?style=flat-square" alt="SQLite">
+</p>
+
+<p align="center">
+  <a href="#cursor-learning-harness">Back to top</a>
+</p>
 
 ## License
 
