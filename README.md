@@ -8,12 +8,12 @@
   <strong>Self-Improving AI Coding Assistant with LangGraph & LangChain</strong>
 </p>
 
-<table><tr>
-<td align="center" bgcolor="#3b82f6"><font color="#ffffff">Python 3.13+</font></td>
-<td align="center" bgcolor="#10b981"><font color="#ffffff">LangGraph 0.2+</font></td>
-<td align="center" bgcolor="#f59e0b"><font color="#000000">MIT License</font></td>
-<td align="center" bgcolor="#f97316"><font color="#ffffff">SQLite 3</font></td>
-<td align="center" bgcolor="#ef4444"><font color="#ffffff">Streamlit</font></td>
+<table align="center"><tr>
+<td style="padding:4px 12px;background:#238636;border-radius:6px;color:#ffffff;">Python 3.13+</td>
+<td style="padding:4px 12px;background:#238636;border-radius:6px;color:#ffffff;">LangGraph 0.2+</td>
+<td style="padding:4px 12px;background:#9a6700;border-radius:6px;color:#ffffff;">MIT License</td>
+<td style="padding:4px 12px;background:#bc4c00;border-radius:6px;color:#ffffff;">SQLite 3</td>
+<td style="padding:4px 12px;background:#da3633;border-radius:6px;color:#ffffff;">Streamlit</td>
 </tr></table>
 
 <p align="center">
@@ -54,14 +54,14 @@
 
 ## Tech Stack
 
-<table><tr>
-<td align="center" bgcolor="#10b981"><font color="#ffffff">LangChain 0.3+</font></td>
-<td align="center" bgcolor="#10b981"><font color="#ffffff">OpenAI API</font></td>
-<td align="center" bgcolor="#f97316"><font color="#ffffff">HuggingFace</font></td>
-<td align="center" bgcolor="#ee4c2c"><font color="#ffffff">PyTorch 2.0+</font></td>
-<td align="center" bgcolor="#6366f1"><font color="#ffffff">Plotly</font></td>
-<td align="center" bgcolor="#fbbf24"><font color="#000000">Ruff</font></td>
-<td align="center" bgcolor="#0a9edc"><font color="#ffffff">pytest</font></td>
+<table align="center"><tr>
+<td style="padding:3px 10px;background:#238636;border-radius:4px;color:#ffffff;">LangChain 0.3+</td>
+<td style="padding:3px 10px;background:#238636;border-radius:4px;color:#ffffff;">OpenAI API</td>
+<td style="padding:3px 10px;background:#bc4c00;border-radius:4px;color:#ffffff;">HuggingFace</td>
+<td style="padding:3px 10px;background:#cf222e;border-radius:4px;color:#ffffff;">PyTorch 2.0+</td>
+<td style="padding:3px 10px;background:#8250df;border-radius:4px;color:#ffffff;">Plotly</td>
+<td style="padding:3px 10px;background:#9a6700;border-radius:4px;color:#000000;">Ruff</td>
+<td style="padding:3px 10px;background:#0969da;border-radius:4px;color:#ffffff;">pytest</td>
 </tr></table>
 
 ## Features
@@ -232,12 +232,12 @@ To enable the social preview image for this repository:
 ---
 
 <p align="center">
-  <font color="#8b949e">Built with</font><br>
-<table><tr>
-<td align="center" bgcolor="#10b981"><font color="#ffffff">LangGraph</font></td>
-<td align="center" bgcolor="#10b981"><font color="#ffffff">LangChain</font></td>
-<td align="center" bgcolor="#3b82f6"><font color="#ffffff">Python</font></td>
-<td align="center" bgcolor="#f97316"><font color="#ffffff">SQLite</font></td>
+  Built with<br>
+<table align="center"><tr>
+<td style="padding:3px 10px;background:#238636;border-radius:4px;color:#ffffff;">LangGraph</td>
+<td style="padding:3px 10px;background:#238636;border-radius:4px;color:#ffffff;">LangChain</td>
+<td style="padding:3px 10px;background:#1f6feb;border-radius:4px;color:#ffffff;">Python</td>
+<td style="padding:3px 10px;background:#bc4c00;border-radius:4px;color:#ffffff;">SQLite</td>
 </tr></table>
 </p>
 
