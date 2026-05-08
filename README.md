@@ -136,7 +136,7 @@ VISION_MODEL=qwen3.6-plus
 
 Sentiment arc analysis runs locally using:
 - `cardiffnlp/twitter-roberta-base-sentiment-latest` for per-turn sentiment scoring
-- `sentence-transformers/all-MiniLM-L6-v2` for embedding-based geometric features
+- `sentence-transformers/all-mpnet-base-v2` for embedding-based geometric features
 
 No API key is needed for sentiment analysis -- models are downloaded automatically on first run.
 
@@ -149,13 +149,13 @@ No API key is needed for sentiment analysis -- models are downloaded automatical
 │   ├── llm.env.example               # LLM API config template
 │   ├── hooks/                        # Hook scripts (~63 Python files)
 │   │   ├── conversation_recorder.py  # Shared: session CRUD, event recording
-│   │   ├── narratives_db.py          # SQLite: 8 schema migrations, 11 tables
+│   │   ├── narratives_db.py          # SQLite: 8 schema migrations, 10 tables
 │   │   ├── learning_analyzer.py      # Pattern extraction -> .mdc rules
 │   │   ├── learning_rules_agent.py   # LangGraph learning rules agent
 │   │   ├── summarizer_agent.py       # LangGraph: session-level summarizer
 │   │   ├── conversation_summarizer_agent.py  # LangGraph: conversation summarizer
 │   │   ├── summarizer_daemon.py      # Background polling daemon
-│   │   ├── summarizer_daemon_launcher.py     # Windows DETACHED_PROCESS launcher
+│   │   ├── summarizer_daemon_launcher.py     # Windows CREATE_NO_WINDOW launcher
 │   │   ├── summarizer_trigger.py     # Trigger file writer for daemon
 │   │   ├── summarize_sessions.py     # CLI: manual batch summarization
 │   │   ├── session_start.py          # Session initialization
@@ -255,7 +255,7 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for development setup, test instructions,
 | Issue | Solution |
 | --- | --- |
 | Summarizer daemon not starting | Check `.cursor/hooks/state/summarizer_daemon.log` |
-| LLM errors during summarization | Ensure `OPENAI_API_KEY` is set in `.cursor/llm.env` |
+| LLM errors during summarization | Ensure `API_KEY` is set in `.cursor/llm.env` |
 | SQLite backfill fails | Verify `state/sessions/` directory contains session files |
 | Hook errors or unexpected behavior | Check `.cursor/hooks/state/hook-debug.log` |
 | Session files not created | Verify `.cursor/hooks.json` has correct hook paths |
