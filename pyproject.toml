@@ -1,0 +1,33 @@
+[build-system]
+requires = ["setuptools>=68.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "cursor-learning-harness"
+version = "0.1.0"
+description = "Records Cursor AI coding sessions, generates narrative summaries, and self-improves agent behavior through a closed learning loop."
+requires-python = ">=3.13"
+license = "MIT"
+readme = "README.md"
+dependencies = [
+    "langchain>=1.0.0",
+    "langgraph>=1.0.0",
+    "langchain-openai>=1.0.0",
+    "python-dotenv>=1.0.0",
+    "tqdm>=4.66.0",
+    "numpy>=1.26.0",
+]
+
+[project.optional-dependencies]
+dashboard = [
+    "streamlit>=1.40.0",
+    "plotly>=5.24.0",
+]
+ml = [
+    "sentence-transformers>=3.0.0",
+    "torch>=2.0.0",
+    "scikit-learn>=1.4.0",
+]
+
+[dependency-groups]
+dev = ["pytest", "pytest-cov"]

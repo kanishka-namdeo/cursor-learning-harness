@@ -32,23 +32,49 @@
 
 - Python 3.13+
 - [Cursor IDE](https://cursor.sh/)
+- Git
 
 ### Setup
 
 ```bash
-# 1. Create and activate virtual environment
-python -m venv .venv
-.venv\Scripts\activate
+# 1. Clone the repository
+git clone https://github.com/your-username/cursor-learning-harness.git
+cd cursor-learning-harness
 
-# 2. Install dependencies
-pip install -r .cursor/hooks/requirements.txt
-pip install streamlit plotly
+# 2. Run the setup script
+# Windows:
+install.bat
+# Linux/macOS:
+chmod +x install.sh
+./install.sh
 
-# 3. (Optional) Backfill SQLite from existing JSON sessions
+# 3. Configure your LLM API key
+# Edit .cursor/llm.env with your API credentials
+
+# 4. Open the project in Cursor -- hooks auto-activate on session start
+```
+
+### Dashboard
+
+```bash
+# Launch the Streamlit dashboard
+streamlit run .cursor/hooks/dashboard/dashboard.py
+```
+
+### CLI Tools
+
+```bash
+# View sessions
+python .cursor/hooks/view.py
+
+# Populate SQLite from existing JSON sessions
 python .cursor/hooks/narratives_db.py --backfill
 
-# 4. Launch the dashboard
-streamlit run .cursor/hooks/dashboard/dashboard.py
+# Run sentiment arc analysis
+python .cursor/hooks/sentiment_arc/batch_runner.py
+
+# Generate learning rules
+python .cursor/hooks/learning_analyzer.py --bootstrap
 ```
 
 The summarizer daemon auto-starts on every `sessionStart` via `.cursor/hooks.json` -- no manual step needed.
@@ -87,12 +113,24 @@ flowchart TD
 
 ### LLM API Key
 
-The summarizer requires an LLM API key. Create a `.cursor/llm.env` file (see `.cursor/llm.env.example` for the template):
+The summarizer requires an LLM API key. Copy the template and edit it:
 
 ```bash
-OPENAI_API_KEY=sk-...
-OPENAI_MODEL=gpt-4o
+cp .cursor/llm.env.example .cursor/llm.env
 ```
+
+Then edit `.cursor/llm.env` with your credentials (see `.cursor/llm.env.example` for available options):
+
+```
+API_KEY=your-api-key-here
+BASE_URL=https://api.openai.com/v1
+REASONING_MODEL=qwen3.6-plus
+FAST_MODEL=qwen3-coder-next
+VISION_MODEL=qwen3.6-plus
+```
+
+> [!TIP]
+> The template uses generic env var names (`API_KEY`, `REASONING_MODEL`) rather than OpenAI-specific ones. Set `BASE_URL` to your provider's endpoint to switch models.
 
 ### Sentiment Analysis
 
@@ -221,6 +259,35 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for development setup, test instructions,
 | SQLite backfill fails | Verify `state/sessions/` directory contains session files |
 | Hook errors or unexpected behavior | Check `.cursor/hooks/state/hook-debug.log` |
 | Session files not created | Verify `.cursor/hooks.json` has correct hook paths |
+
+## Development
+
+### Using pyproject.toml
+
+This project uses `pyproject.toml` for dependency management. After cloning:
+
+```bash
+python -m venv .venv
+source .venv/bin/activate  # On Windows: .venv\Scripts\activate
+pip install -e ".[dashboard,ml]"  # Full setup (core + dashboard + ML)
+pip install pytest pytest-cov     # Dev tools (testing)
+```
+
+### Dependency Groups
+
+| Group | Purpose | Install Command |
+| --- | --- | --- |
+| (core) | Session recording, summarization, learning loop | `pip install -e .` |
+| `dashboard` | Streamlit dashboard with Plotly charts | `pip install -e ".[dashboard]"` |
+| `ml` | Sentiment analysis with local models (torch, sentence-transformers) | `pip install -e ".[ml]"` |
+| `dev` | Testing tools (pytest, pytest-cov) | `pip install -e ".[dev]"` |
+
+### Cross-Platform Hooks
+
+The hooks use wrapper scripts (`.cursor/hooks/run-hook.ps1` and `.cursor/hooks/run-hook.sh`) to locate the Python interpreter dynamically. This means:
+- No hardcoded paths in `hooks.json`
+- Works on Windows, Linux, and macOS
+- Falls back to system Python if `.venv` is missing
 
 ## Roadmap
 

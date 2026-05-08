@@ -3,112 +3,112 @@
   "hooks": {
     "sessionStart": [
       {
-        "command": "d:\\test_agent\\learning_agent\\.venv\\Scripts\\python.exe d:\\test_agent\\learning_agent\\.cursor\\hooks\\session_start.py"
+        "command": "powershell -ExecutionPolicy Bypass -File .cursor/hooks/run-hook.ps1 session_start.py"
       },
       {
-        "command": "d:\\test_agent\\learning_agent\\.venv\\Scripts\\python.exe d:\\test_agent\\learning_agent\\.cursor\\hooks\\summarizer_daemon.py --start"
+        "command": "powershell -ExecutionPolicy Bypass -File .cursor/hooks/run-hook.ps1 summarizer_daemon.py --start"
       }
     ],
     "sessionEnd": [
       {
-        "command": "d:\\test_agent\\learning_agent\\.venv\\Scripts\\python.exe d:\\test_agent\\learning_agent\\.cursor\\hooks\\session_end.py",
+        "command": "powershell -ExecutionPolicy Bypass -File .cursor/hooks/run-hook.ps1 session_end.py",
         "timeout": 30
       },
       {
-        "command": "d:\\test_agent\\learning_agent\\.venv\\Scripts\\python.exe d:\\test_agent\\learning_agent\\.cursor\\hooks\\sentiment_arc_trigger.py"
+        "command": "powershell -ExecutionPolicy Bypass -File .cursor/hooks/run-hook.ps1 sentiment_arc_trigger.py"
       }
     ],
     "preToolUse": [
       {
-        "command": "d:\\test_agent\\learning_agent\\.venv\\Scripts\\python.exe d:\\test_agent\\learning_agent\\.cursor\\hooks\\pre_tool_use.py"
+        "command": "powershell -ExecutionPolicy Bypass -File .cursor/hooks/run-hook.ps1 pre_tool_use.py"
       }
     ],
     "postToolUse": [
       {
-        "command": "d:\\test_agent\\learning_agent\\.venv\\Scripts\\python.exe d:\\test_agent\\learning_agent\\.cursor\\hooks\\post_tool_use.py"
+        "command": "powershell -ExecutionPolicy Bypass -File .cursor/hooks/run-hook.ps1 post_tool_use.py"
       }
     ],
     "postToolUseFailure": [
       {
-        "command": "d:\\test_agent\\learning_agent\\.venv\\Scripts\\python.exe d:\\test_agent\\learning_agent\\.cursor\\hooks\\post_tool_use_failure.py"
+        "command": "powershell -ExecutionPolicy Bypass -File .cursor/hooks/run-hook.ps1 post_tool_use_failure.py"
       }
     ],
     "beforeShellExecution": [
       {
-        "command": "d:\\test_agent\\learning_agent\\.venv\\Scripts\\python.exe d:\\test_agent\\learning_agent\\.cursor\\hooks\\before_shell_execution.py"
+        "command": "powershell -ExecutionPolicy Bypass -File .cursor/hooks/run-hook.ps1 before_shell_execution.py"
       }
     ],
     "afterShellExecution": [
       {
-        "command": "d:\\test_agent\\learning_agent\\.venv\\Scripts\\python.exe d:\\test_agent\\learning_agent\\.cursor\\hooks\\after_shell_execution.py"
+        "command": "powershell -ExecutionPolicy Bypass -File .cursor/hooks/run-hook.ps1 after_shell_execution.py"
       }
     ],
     "beforeMCPExecution": [
       {
-        "command": "d:\\test_agent\\learning_agent\\.venv\\Scripts\\python.exe d:\\test_agent\\learning_agent\\.cursor\\hooks\\before_mcp_execution.py"
+        "command": "powershell -ExecutionPolicy Bypass -File .cursor/hooks/run-hook.ps1 before_mcp_execution.py"
       }
     ],
     "afterMCPExecution": [
       {
-        "command": "d:\\test_agent\\learning_agent\\.venv\\Scripts\\python.exe d:\\test_agent\\learning_agent\\.cursor\\hooks\\after_mcp_execution.py"
+        "command": "powershell -ExecutionPolicy Bypass -File .cursor/hooks/run-hook.ps1 after_mcp_execution.py"
       }
     ],
     "subagentStart": [
       {
-        "command": "d:\\test_agent\\learning_agent\\.venv\\Scripts\\python.exe d:\\test_agent\\learning_agent\\.cursor\\hooks\\subagent_start.py"
+        "command": "powershell -ExecutionPolicy Bypass -File .cursor/hooks/run-hook.ps1 subagent_start.py"
       }
     ],
     "subagentStop": [
       {
-        "command": "d:\\test_agent\\learning_agent\\.venv\\Scripts\\python.exe d:\\test_agent\\learning_agent\\.cursor\\hooks\\subagent_stop.py"
+        "command": "powershell -ExecutionPolicy Bypass -File .cursor/hooks/run-hook.ps1 subagent_stop.py"
       }
     ],
     "beforeReadFile": [
       {
-        "command": "d:\\test_agent\\learning_agent\\.venv\\Scripts\\python.exe d:\\test_agent\\learning_agent\\.cursor\\hooks\\before_read_file.py"
+        "command": "powershell -ExecutionPolicy Bypass -File .cursor/hooks/run-hook.ps1 before_read_file.py"
       }
     ],
     "afterFileEdit": [
       {
-        "command": "d:\\test_agent\\learning_agent\\.venv\\Scripts\\python.exe d:\\test_agent\\learning_agent\\.cursor\\hooks\\after_file_edit.py"
+        "command": "powershell -ExecutionPolicy Bypass -File .cursor/hooks/run-hook.ps1 after_file_edit.py"
       }
     ],
     "beforeSubmitPrompt": [
       {
-        "command": "d:\\test_agent\\learning_agent\\.venv\\Scripts\\python.exe d:\\test_agent\\learning_agent\\.cursor\\hooks\\before_submit_prompt.py"
+        "command": "powershell -ExecutionPolicy Bypass -File .cursor/hooks/run-hook.ps1 before_submit_prompt.py"
       }
     ],
     "preCompact": [
       {
-        "command": "d:\\test_agent\\learning_agent\\.venv\\Scripts\\python.exe d:\\test_agent\\learning_agent\\.cursor\\hooks\\pre_compact.py"
+        "command": "powershell -ExecutionPolicy Bypass -File .cursor/hooks/run-hook.ps1 pre_compact.py"
       }
     ],
     "afterAgentResponse": [
       {
-        "command": "d:\\test_agent\\learning_agent\\.venv\\Scripts\\python.exe d:\\test_agent\\learning_agent\\.cursor\\hooks\\after_agent_response.py"
+        "command": "powershell -ExecutionPolicy Bypass -File .cursor/hooks/run-hook.ps1 after_agent_response.py"
       },
       {
-        "command": "d:\\test_agent\\learning_agent\\.venv\\Scripts\\python.exe d:\\test_agent\\learning_agent\\.cursor\\hooks\\summarizer_trigger.py"
+        "command": "powershell -ExecutionPolicy Bypass -File .cursor/hooks/run-hook.ps1 summarizer_trigger.py"
       }
     ],
     "afterAgentThought": [
       {
-        "command": "d:\\test_agent\\learning_agent\\.venv\\Scripts\\python.exe d:\\test_agent\\learning_agent\\.cursor\\hooks\\after_agent_thought.py"
+        "command": "powershell -ExecutionPolicy Bypass -File .cursor/hooks/run-hook.ps1 after_agent_thought.py"
       }
     ],
     "stop": [
       {
-        "command": "d:\\test_agent\\learning_agent\\.venv\\Scripts\\python.exe d:\\test_agent\\learning_agent\\.cursor\\hooks\\stop.py"
+        "command": "powershell -ExecutionPolicy Bypass -File .cursor/hooks/run-hook.ps1 stop.py"
       }
     ],
     "beforeTabFileRead": [
       {
-        "command": "d:\\test_agent\\learning_agent\\.venv\\Scripts\\python.exe d:\\test_agent\\learning_agent\\.cursor\\hooks\\before_tab_file_read.py"
+        "command": "powershell -ExecutionPolicy Bypass -File .cursor/hooks/run-hook.ps1 before_tab_file_read.py"
       }
     ],
     "afterTabFileEdit": [
       {
-        "command": "d:\\test_agent\\learning_agent\\.venv\\Scripts\\python.exe d:\\test_agent\\learning_agent\\.cursor\\hooks\\after_tab_file_edit.py"
+        "command": "powershell -ExecutionPolicy Bypass -File .cursor/hooks/run-hook.ps1 after_tab_file_edit.py"
       }
     ]
   }
