@@ -26,7 +26,7 @@
 - **No pattern tracking** -- repeated failures, looping, and frustration go unnoticed; sentiment analysis catches them
 - **Agents don't learn** -- extracted patterns become Cursor rules that improve future behavior automatically
 
-## Quick Start
+## Installation
 
 ### Prerequisites
 
@@ -34,47 +34,75 @@
 - [Cursor IDE](https://cursor.sh/)
 - Git
 
-### Setup
+### Option 1: New Project (GitHub Template)
+
+This is the easiest way to get started. The repository includes a full project with hooks, dashboard, and all tooling.
+
+1. Go to https://github.com/YOUR-USERNAME/cursor-learning-harness
+2. Click **Use this template** > **Create a new repository**
+3. Clone your new repo:
+   ```bash
+   git clone https://github.com/YOUR-USERNAME/your-new-repo.git
+   cd your-new-repo
+   ```
+4. Run the setup script:
+   ```bash
+   # Windows:
+   install.bat
+   # Linux/macOS:
+   chmod +x install.sh
+   ./install.sh
+   ```
+5. Edit `.cursor/llm.env` with your LLM API key
+6. Open the project in Cursor -- hooks auto-activate on session start
+
+### Option 2: Existing Project (Add Hooks)
+
+Install the learning harness into any existing Cursor workspace without replacing your project files.
+
+**Download the setup script, review it, then run:**
 
 ```bash
-# 1. Clone the repository
-git clone https://github.com/your-username/cursor-learning-harness.git
-cd cursor-learning-harness
-
-# 2. Run the setup script
 # Windows:
-install.bat
+Invoke-WebRequest -Uri "https://raw.githubusercontent.com/YOUR-USERNAME/cursor-learning-harness/main/setup-hooks.ps1" -OutFile "setup-hooks.ps1"
+# REVIEW the script before running:
+notepad setup-hooks.ps1
+powershell -ExecutionPolicy Bypass -File setup-hooks.ps1
+
 # Linux/macOS:
-chmod +x install.sh
-./install.sh
-
-# 3. Configure your LLM API key
-# Edit .cursor/llm.env with your API credentials
-
-# 4. Open the project in Cursor -- hooks auto-activate on session start
+curl -sSL https://raw.githubusercontent.com/YOUR-USERNAME/cursor-learning-harness/main/setup-hooks.sh -o setup-hooks.sh
+# REVIEW the script before running:
+less setup-hooks.sh
+chmod +x setup-hooks.sh
+./setup-hooks.sh
 ```
+
+**After setup, install dependencies in your workspace:**
+
+```bash
+pip install -e ".[dashboard,ml]"
+```
+
+**Then:**
+1. Edit `.cursor/llm.env` with your LLM API key
+2. Open the project in Cursor -- hooks auto-activate
+
+> [!TIP]
+> Run `./setup-hooks.sh --dry-run` (Unix) or `.\setup-hooks.ps1 -WhatIf` (Windows) to preview what would be copied without making changes.
 
 ### Dashboard
 
 ```bash
-# Launch the Streamlit dashboard
 streamlit run .cursor/hooks/dashboard/dashboard.py
 ```
 
 ### CLI Tools
 
 ```bash
-# View sessions
-python .cursor/hooks/view.py
-
-# Populate SQLite from existing JSON sessions
-python .cursor/hooks/narratives_db.py --backfill
-
-# Run sentiment arc analysis
-python .cursor/hooks/sentiment_arc/batch_runner.py
-
-# Generate learning rules
-python .cursor/hooks/learning_analyzer.py --bootstrap
+python .cursor/hooks/view.py                          # View sessions
+python .cursor/hooks/narratives_db.py --backfill       # Populate SQLite from JSON
+python .cursor/hooks/sentiment_arc/batch_runner.py     # Sentiment arc analysis
+python .cursor/hooks/learning_analyzer.py --bootstrap  # Generate learning rules
 ```
 
 The summarizer daemon auto-starts on every `sessionStart` via `.cursor/hooks.json` -- no manual step needed.
@@ -108,6 +136,22 @@ flowchart TD
     SessionEnd -->|"trigger"| SentimentTrigger["sentiment_arc_trigger.py"]
     ConvSummarizer -->|"writes"| ConvNarrative["conversation_narratives (SQLite)"]
 ```
+
+## Dependencies
+
+| Package | Purpose |
+|---------|---------|
+| `langchain` >= 1.0.0 | Agent framework |
+| `langgraph` >= 1.0.0 | State machine graphs |
+| `langchain-openai` >= 1.0.0 | OpenAI-compatible LLM integration |
+| `python-dotenv` >= 1.0.0 | Environment variable loading |
+| `tqdm` >= 4.66.0 | Progress bars |
+| `numpy` >= 1.26.0 | Numerical operations |
+| `streamlit` >= 1.40.0 (optional) | Dashboard UI |
+| `plotly` >= 5.24.0 (optional) | Dashboard charts |
+| `sentence-transformers` >= 3.0.0 (optional) | Embedding-based sentiment features |
+| `torch` >= 2.0.0 (optional) | ML backend for embeddings |
+| `scikit-learn` >= 1.4.0 (optional) | ML utilities for sentiment analysis |
 
 ## Configuration
 
@@ -299,6 +343,15 @@ The hooks use wrapper scripts (`.cursor/hooks/run-hook.ps1` and `.cursor/hooks/r
 - [x] Subagent lifecycle tracking
 - [ ] Cloud-synced session analytics
 - [ ] Multi-project support
+
+## Using as a GitHub Template
+
+This repository is designed to be used as a [GitHub Template Repository](https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-template-repository). This means anyone can create their own copy without inheriting git history, and then use it as a fresh starting point.
+
+**To enable this repository as a template:**
+1. Go to the repository **Settings** tab
+2. Check the **Template repository** box
+3. Users will now see a **Use this template** button on the repository page
 
 ## License
 

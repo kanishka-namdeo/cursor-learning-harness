@@ -59,3 +59,16 @@ logs/
 # Distribution
 *.tar.gz
 *.whl
+
+# ---------------------------------------------------------------
+# TARGET WORKSPACE .gitignore GUIDANCE
+# ---------------------------------------------------------------
+# After running setup-hooks.ps1 or setup-hooks.sh in an existing
+# project, the TARGET workspace should add these entries to its
+# own .gitignore to prevent committing runtime state and secrets:
+#
+#   # Cursor Learning Harness (runtime state)
+#   .cursor/hooks/state/
+#   !.cursor/hooks/state/.gitkeep
+#   .cursor/llm.env
+# ---------------------------------------------------------------
